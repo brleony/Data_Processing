@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-# Name:
-# Student number:
+# Name: Leony Brok
+# Student number: 10767215
 """
 This script scrapes IMDB and outputs a CSV file with highest rated tv series.
 """
@@ -87,6 +87,8 @@ if __name__ == "__main__":
 
     # extract the tv series (using the function you implemented)
     tvseries = extract_tvseries(dom)
+
+    print(dom.prettify())
 
     # write the CSV file to disk (including a header)
     with open(OUTPUT_CSV, 'w', newline='') as output_file:
