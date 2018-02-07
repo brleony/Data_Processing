@@ -32,7 +32,21 @@ def extract_tvseries(dom):
     # NOTE: FOR THIS EXERCISE YOU ARE ALLOWED (BUT NOT REQUIRED) TO IGNORE
     # UNICODE CHARACTERS AND SIMPLY LEAVE THEM OUT OF THE OUTPUT.
 
-    return []   # REPLACE THIS LINE AS WELL AS APPROPRIATE
+    series = [[] for column in range(50)]
+
+    count = 0
+    for title in dom.find_all(class_="lister-item-header"):
+        series[count].append(title.a.string)
+        count += 1
+
+    count = 0
+    for rating in dom.find_all(class_="inline-block ratings-imdb-rating"):
+        series[count].append(rating.strong.string)
+        count += 1
+
+    print(series)
+
+    return series   # REPLACE THIS LINE AS WELL AS APPROPRIATE
 
 
 def save_csv(outfile, tvseries):
