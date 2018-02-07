@@ -88,8 +88,6 @@ if __name__ == "__main__":
     # extract the tv series (using the function you implemented)
     tvseries = extract_tvseries(dom)
 
-    print(dom.prettify())
-
     # write the CSV file to disk (including a header)
     with open(OUTPUT_CSV, 'w', newline='') as output_file:
         save_csv(output_file, tvseries)
