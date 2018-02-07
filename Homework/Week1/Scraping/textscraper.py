@@ -34,20 +34,26 @@ def extract_tvseries(dom):
 
     series = [[] for column in range(50)]
 
-    count = 0
-    for title in dom.find_all(class_="lister-item-header"):
-        series[count].append(title.a.string)
-        count += 1
+    for i, title in enumerate(dom.find_all(class_="lister-item-header", limit=50)):
+        series[i].append(title.a.get_text())
 
-    count = 0
-    for rating in dom.find_all(class_="inline-block ratings-imdb-rating"):
-        series[count].append(rating.strong.string)
-        count += 1
+    for i, rating in enumerate(dom.find_all(class_="inline-block ratings-imdb-rating", limit=50)):
+        series[i].append(rating.strong.get_text())
+
+    for i, genre in enumerate(dom.find_all(class_="genre", limit=50)):
+        series[i].append(genre.get_text(strip=True))
+
+    # for i, stars in enumerate(dom.find_all(class_="", limit=50)):
+    #     series[i].append(stars.string)
+
+    # print(dom.find_all(string="Stars:"))
+
+    for i, runtime in enumerate(dom.find_all(class_="runtime")):
+        series[i-1].append(runtime.string)
 
     print(series)
 
-    return series   # REPLACE THIS LINE AS WELL AS APPROPRIATE
-
+    return series
 
 def save_csv(outfile, tvseries):
     """
@@ -56,8 +62,9 @@ def save_csv(outfile, tvseries):
     writer = csv.writer(outfile)
     writer.writerow(['Title', 'Rating', 'Genre', 'Actors', 'Runtime'])
 
-    # ADD SOME CODE OF YOURSELF HERE TO WRITE THE TV-SERIES TO DISK
-
+    # Iterate over series and write to csv file
+    for i, serie in enumerate(tvseries):
+        writer.writerow(tvseries[i])
 
 def simple_get(url):
     """
