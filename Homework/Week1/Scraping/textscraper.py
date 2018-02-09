@@ -18,8 +18,8 @@ OUTPUT_CSV = 'tvseries.csv'
 
 def extract_tvseries(dom):
     """
-    Extract a list of highest rated TV series from DOM (of IMDB page).
-    Each TV series entry should contain the following fields:
+    Extracts a list of highest rated TV series from DOM (of IMDB page).
+    Each TV series entry contains the following fields:
     - TV Title
     - Rating
     - Genres (comma separated if more than one)
@@ -27,33 +27,42 @@ def extract_tvseries(dom):
     - Runtime (only a number!)
     """
 
-    # ADD YOUR CODE HERE TO EXTRACT THE ABOVE INFORMATION ABOUT THE
-    # HIGHEST RATED TV-SERIES
-    # NOTE: FOR THIS EXERCISE YOU ARE ALLOWED (BUT NOT REQUIRED) TO IGNORE
-    # UNICODE CHARACTERS AND SIMPLY LEAVE THEM OUT OF THE OUTPUT.
+    number_of_series = 50
 
-    series = [[] for column in range(50)]
+    # Make empty matrix to hold series' data.
+    series = [[] for column in range(number_of_series)]
 
-    for i, title in enumerate(dom.find_all(class_="lister-item-header", limit=50)):
-        series[i].append(title.a.get_text())
+    # Find series' titles.
+    for i, title in enumerate(dom.find_all("h3", class_="lister-item-header", limit=number_of_series)):
+        series[i].append(title.a.get_text(strip=True))
 
-    for i, rating in enumerate(dom.find_all(class_="inline-block ratings-imdb-rating", limit=50)):
-        series[i].append(rating.strong.get_text())
+    # Find series' ratings.
+    for i, rating in enumerate(dom.find_all("div", class_="inline-block ratings-imdb-rating", limit=number_of_series)):
+        series[i].append(rating.strong.get_text(strip=True))
 
-    for i, genre in enumerate(dom.find_all(class_="genre", limit=50)):
+    # Find series' genre.
+    for i, genre in enumerate(dom.find_all("span", class_="genre", limit=number_of_series)):
         series[i].append(genre.get_text(strip=True))
 
-    # for i, stars in enumerate(dom.find_all(class_="", limit=50)):
-    #     series[i].append(stars.string)
+    # Find series' actors.
+    for i, div in enumerate(dom.find_all("div", class_="lister-item-content", limit=number_of_series)):
+        for paragraph in div.find_all("p"):
+            # Get the p with an empty string as class.
+            if paragraph.attrs["class"] == [""]:
+                actors = []
+                # Get all actors and actresses.
+                for anchor in paragraph.find_all("a"):
+                    actors.append(anchor.get_text(strip=True))
+                series[i].append(", ".join(actors))
 
-    # print(dom.find_all(string="Stars:"))
-
-    for i, runtime in enumerate(dom.find_all(class_="runtime")):
-        series[i-1].append(runtime.string)
-
-    print(series)
+    # Find series' runtime.
+    for i, runtime in enumerate(dom.find_all("span", class_="runtime", limit=number_of_series)):
+        # Get only the runtime digits.
+        runtime_digits = "".join([i for i in runtime.get_text(strip=True) if i.isdigit()])
+        series[i].append(runtime_digits)
 
     return series
+
 
 def save_csv(outfile, tvseries):
     """
@@ -62,9 +71,8 @@ def save_csv(outfile, tvseries):
     writer = csv.writer(outfile)
     writer.writerow(['Title', 'Rating', 'Genre', 'Actors', 'Runtime'])
 
-    # Iterate over series and write to csv file
-    for i, serie in enumerate(tvseries):
-        writer.writerow(tvseries[i])
+    # Write tvseries to csv file.
+    writer.writerows(tvseries)
 
 def simple_get(url):
     """
