@@ -5,16 +5,16 @@
   </head>
 
   <body>
-    <h1>Daily Average Temperature in De Bilt in 1996</h1>
+    <h1>Daily Average Temperature in De Bilt (NL) in 1996</h1>
     <h3>Data Processing Week 2 Assignment</h3>
     <p>Data source: <a href="http://projects.knmi.nl/klimatologie/daggegevens/selectie.cgi">KNMI</a></p>
     <canvas id="myCanvas" height="500" width="800"></canvas>
-    <p>Leony Brok</p1>
+    <p>Leony Brok</p>
   </body>
 
-  <textarea id="rawdata"></textarea>
-
   <script>
+
+  // get data from external file
   var xhttp =  new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 & this.status == 200) {
@@ -25,54 +25,13 @@
   xhttp.send();
 
   function main(data) {
-    // store raw data in array
-    var rawdata = data.split("\n");
-    var dates = [];
-    var temperatures = [];
+    var extracted_data = extract_data(data);
 
-    // make date array and temperature array
-    rawdata.forEach(function(line) {
-      if (line.length == 0) {
-        return;
-      }
+    var dates = extracted_data[0];
+    var temperatures = extracted_data[1];
 
-      console.log(line);
-      var line = line.split(",");
-      console.log(line);
-      var year = line[1].slice(0, 4);
-      var month = line[1].slice(4, 6);
-      var day = line[1].slice(6, 8);
-      dates.push(new Date(year + "," + month + "," + day));
-      temperatures.push(Number(line[2]));
-    });
-
-
-
-    function createTransform(domain, range){
-      // domain is a two-element array of the data bounds [domain_min, domain_max]
-      // range is a two-element array of the screen bounds [range_min, range_max]
-      // this gives you two equations to solve:
-      // range_min = alpha * domain_min + beta
-      // range_max = alpha * domain_max + beta
-        // a solution would be:
-
-        var domain_min = domain[0]
-        var domain_max = domain[1]
-        var range_min = range[0]
-        var range_max = range[1]
-
-        // formulas to calculate the alpha and the beta
-        var alpha = (range_max - range_min) / (domain_max - domain_min)
-        var beta = range_max - alpha * domain_max
-
-        // returns the function for the linear transformation (y= a * x + b)
-        return function(x){
-          return alpha * x + beta;
-        }
-    }
-
+    // convert dates to days (1 to 366)
     var days = [];
-
     dates.forEach(function(date) {
       var milliseconds = date.getTime();
       var milliseconds_per_day = 86400000; // 24h * 60m * 60s * 1000
@@ -80,92 +39,156 @@
       days.push(day);
     });
 
-    console.log(days);
-
-    // make canvas
+    // create canvas
     var canvas = document.getElementById("myCanvas");
-    var context = canvas.getContext("2d");
 
-    var xOffset = 0.1 * canvas.width;
-    var yOffset = 0.1 * canvas.height;
+    // determine offset
+    var x_offset = 0.1 * canvas.width;
+    var y_offset = 0.1 * canvas.height;
+
+    // draw graph
+    draw_xaxis(canvas, x_offset, y_offset);
+    draw_yaxis(temperatures, canvas, x_offset, y_offset);
+    draw_line(days, temperatures, canvas, x_offset, y_offset);
+  }
+
+  // extract data in date array and temperature array
+  function extract_data(data) {
+    var dates = [];
+    var temperatures = [];
+
+    // make date array and temperature array
+    data.split("\n").forEach(function(line) {
+      if (line.length == 0) {
+        return;
+      }
+
+      var line = line.split(",");
+      var year = line[1].slice(0, 4);
+      var month = line[1].slice(4, 6);
+      var day = line[1].slice(6, 8);
+
+      dates.push(new Date(year + "," + month + "," + day));
+      temperatures.push(Number(line[2]));
+    });
+
+    return [dates, temperatures];
+  }
+
+  function create_transform(domain, range) {
+    // domain is a two-element array of the data bounds [domain_min, domain_max]
+    // range is a two-element array of the screen bounds [range_min, range_max]
+
+    var domain_min = domain[0]
+    var domain_max = domain[1]
+    var range_min = range[0]
+    var range_max = range[1]
+
+    // formulas to calculate the alpha and the beta
+    var alpha = (range_max - range_min) / (domain_max - domain_min)
+    var beta = range_max - alpha * domain_max
+
+    // returns the function for the linear transformation (y= a * x + b)
+    return function(x) {
+      return alpha * x + beta;
+    }
+  }
+
+  // plot the line with days on the x-axis, temperatures on y
+  function draw_line(days, temperatures, canvas, x_offset, y_offset) {
+    var context = canvas.getContext("2d");
 
     var max_temp = Math.max.apply(null, temperatures);
     var min_temp = Math.min.apply(null, temperatures);
 
-    var xTransform = createTransform([days[0], days[days.length - 1]], [xOffset, canvas.width])
-    var yTransform = createTransform([max_temp, min_temp], [0, canvas.height - yOffset])
+    // functions to transform data points to x,y locations on canvas
+    var x_transform = create_transform([days[0], days[days.length - 1]], [x_offset, canvas.width])
+    var y_transform = create_transform([max_temp, min_temp], [0, canvas.height - y_offset])
 
     // draw line
-    function drawline() {
-      var previous_day = days[0];
-      var previous_temperature = temperatures[0];
-      for (var i in days) {
-        var day = days[i];
-        var temperature = temperatures[i];
-        context.beginPath();
-        context.moveTo(xTransform(previous_day), yTransform(previous_temperature));
-        context.lineTo(xTransform(day), yTransform(temperature));
-        context.stroke();
-        previous_day = day;
-        previous_temperature = temperature;
-      }
+    context.beginPath();
+    context.moveTo(x_transform(days[0]), y_transform(temperatures[0]));
+    for (var i in days) {
+      context.lineTo(x_transform(days[i]), y_transform(temperatures[i]));
     }
+    context.stroke();
+  }
 
-    function drawXAxis() {
+  // draw x-axis for months with strokes and labels
+  function draw_xaxis(canvas, x_offset, y_offset) {
+    var context = canvas.getContext("2d");
+
+    // draw x-axis
+    context.beginPath();
+    context.moveTo(x_offset, canvas.height - y_offset);
+    context.lineTo(canvas.width, canvas.height - y_offset);
+    context.stroke();
+
+    var month_labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    var months = 12;
+    var distance_between = (canvas.width - x_offset) / months;
+
+    var stroke_length = 0.03 * canvas.height;
+    var previous_stroke = x_offset;
+
+    for (var i = 0; i < months + 1; i++) {
+
+      // draw stroke
       context.beginPath();
-      context.moveTo(xOffset, canvas.height - yOffset);
-      context.lineTo(canvas.width, canvas.height - yOffset);
+      context.moveTo(previous_stroke, canvas.height - y_offset);
+      context.lineTo(previous_stroke, canvas.height - y_offset + stroke_length);
       context.stroke();
 
-      var months = 12;
-      var distance_between = (canvas.width - xOffset) / months;
-      var stroke_length = 0.03 * canvas.height;
-      var previous_stroke = xOffset;
-      var month_labels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-      for (var i = 0; i < months + 1; i++) {
-        context.beginPath();
-        context.moveTo(previous_stroke, canvas.height - yOffset);
-        context.lineTo(previous_stroke, canvas.height - yOffset + stroke_length);
-        context.stroke();
-        context.translate(previous_stroke + 0.5 * stroke_length, canvas.height - yOffset + stroke_length)
-        context.rotate(45*Math.PI/180);
-        context.font = "22px serif";
-        context.fillText(month_labels[i], 0, 0);
-        context.setTransform(1, 0, 0, 1, 0, 0);;
-        previous_stroke = previous_stroke + distance_between;
-      }
-    }
+      // write month label
+      context.translate(previous_stroke + 0.5 * stroke_length, canvas.height - y_offset + stroke_length)
+      context.rotate(45*Math.PI/180);
+      context.font = "22px serif";
+      context.fillText(month_labels[i], 0, 0);
+      context.setTransform(1, 0, 0, 1, 0, 0);;
 
-    function drawYAxis() {
+      previous_stroke = previous_stroke + distance_between;
+    }
+  }
+
+  // draw y-axis for temperaturs with strokes and labels
+  function draw_yaxis(temperatures, canvas, x_offset, y_offset) {
+    var context = canvas.getContext("2d");
+
+    var max_temp = Math.max.apply(null, temperatures);
+    var min_temp = Math.min.apply(null, temperatures);
+
+    // draw y-axis
+    context.beginPath();
+    context.moveTo(x_offset, 0);
+    context.lineTo(x_offset, canvas.height - y_offset);
+    context.stroke();
+
+    // write axis label
+    context.font = "22px serif";
+    context.fillText("°C", 0, canvas.height / 8);
+
+    var num_strokes = (max_temp - min_temp) / 50;
+    var distance_between = (canvas.height - y_offset) / num_strokes;
+    var previous_stroke = ((max_temp % 50) / 50) * distance_between;
+
+    var stroke_length = 0.03 * canvas.height;
+    var stroke_value = max_temp - (max_temp % 50);
+
+    for (var i = 0; i < num_strokes - 1; i++) {
+
+      // draw stroke
       context.beginPath();
-      context.moveTo(xOffset, 0);
-      context.lineTo(xOffset, canvas.height - yOffset);
+      context.moveTo(x_offset, previous_stroke);
+      context.lineTo(x_offset - stroke_length, previous_stroke);
       context.stroke();
 
-      var num_strokes = (max_temp - min_temp) / 50;
-      var distance_between = (canvas.height - yOffset) / num_strokes;
-      var previous_stroke = ((max_temp % 50) / 50) * distance_between;
-      var stroke_length = 0.03 * canvas.height;
-      var stroke_value = max_temp - (max_temp % 50);
+      // write temperature value
+      context.textAlign = "right";
+      context.fillText(stroke_value / 10, x_offset - stroke_length * 1.5, previous_stroke + stroke_length * 0.5);
 
-      for (var i = 0; i < num_strokes - 1; i++) {
-        context.beginPath();
-        context.moveTo(xOffset, previous_stroke);
-        context.lineTo(xOffset - stroke_length, previous_stroke);
-        context.font = "22px serif";
-        context.fillText(stroke_value / 10, xOffset - stroke_length * 4, previous_stroke + stroke_length * 0.5);
-        context.stroke();
-        previous_stroke = previous_stroke + distance_between;
-        stroke_value = stroke_value - 50;
-      }
+      previous_stroke = previous_stroke + distance_between;
+      stroke_value = stroke_value - 50;
     }
-
-    console.log(max_temp, min_temp);
-
-    drawXAxis();
-    drawYAxis();
-    drawline();
-
   }
 
   </script>
