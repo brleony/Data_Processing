@@ -6,7 +6,7 @@ import csv
 import json
 
 INPUT_CSV = 'sundata.txt'
-OUTPUT_JSON = 'sundatajson.txt'
+OUTPUT_JSON = 'sundata.json'
 
 if __name__ == "__main__":
 
