@@ -15,7 +15,7 @@ if __name__ == "__main__":
     jsonfile = open(OUTPUT_JSON, 'w')
 
     # save data from csv file
-    fieldnames = ("Weatherstation","Date","Sunshine")
+    fieldnames = ("Weatherstation", "Date", "Sunshine")
     reader = csv.DictReader(csvfile, fieldnames)
 
     # write JSON to disk
