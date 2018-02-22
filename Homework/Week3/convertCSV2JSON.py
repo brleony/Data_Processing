@@ -5,19 +5,17 @@
 import csv
 import json
 
-INPUT_CSV = 'sundata.txt'
+INPUT_CSV = 'sundata.csv'
 OUTPUT_JSON = 'sundata.json'
 
 if __name__ == "__main__":
 
-    # open files
-    csvfile = open(INPUT_CSV, 'r')
-    jsonfile = open(OUTPUT_JSON, 'w')
+    # open csv and json files, write data to json file
+    with open(INPUT_CSV, 'r') as csvFile, open(OUTPUT_JSON, 'w') as jsonFile:
 
-    # save data from csv file
-    fieldnames = ("Weatherstation", "Date", "Sunshine")
-    reader = csv.DictReader(csvfile, fieldnames)
+        # load data from csv file
+        fieldnames = ("date", "sunshineHours")
+        reader = csv.DictReader(csvFile, fieldnames)
 
-    # write JSON to disk
-    for row in reader:
-        json.dump(row, jsonfile, indent = 4)
+        # write data to json file
+        json.dump(list(reader), jsonFile, indent = 4)
