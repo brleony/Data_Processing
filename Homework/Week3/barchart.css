@@ -1,3 +1,18 @@
+/*
+Name: Leony Brok
+Student number: 10767215
+*/
 body {
-    background-color: lightblue;
+    background-color: #D4E4F7;
+    color: #190934;
+}
+
+.chart rect {
+  fill: #236AB9;
+}
+
+.chart text {
+  fill: #FBA90A;
+  font: 12px sans-serif;
+  text-anchor: end;
 }
