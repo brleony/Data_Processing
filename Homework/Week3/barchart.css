@@ -26,3 +26,20 @@ body {
   stroke: #000;
   shape-rendering: crispEdges;
 }
+
+.bar {
+  fill: orange;
+}
+.chart rect:hover {
+  fill: orangered ;
+}
+
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
