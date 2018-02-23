@@ -17,5 +17,9 @@ if __name__ == "__main__":
         fieldnames = ("date", "sunshineHours")
         reader = csv.DictReader(csvFile, fieldnames)
 
+        data = list(reader)
+        for datum in data:
+            datum["sunshineHours"] = int(datum["sunshineHours"]) / 10
+
         # write data to json file
-        json.dump(list(reader), jsonFile, indent = 4)
+        json.dump(data, jsonFile, indent = 4)
