@@ -1,6 +1,5 @@
 # Name: Leony Brok
 # Student number: 10767215
-# Data source: https://opendata.cbs.nl/#/CBS/nl/dataset/82814NED/table?ts=1519084165675
 
 import csv
 import json
