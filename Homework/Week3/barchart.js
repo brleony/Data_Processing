@@ -111,8 +111,14 @@ function drawBars(chart, sunshineHours, barWidth, height, y, tip) {
         .attr("y", function(d) { return y(d) })
         .attr("height", function(d) { return height - y(d); })
         .attr("width", barWidth - 1)
-        .on('mouseover', tip.show)
-        .on('mouseout', tip.hide);
+        .on("mouseover", function(d) {
+            tip.show(d);
+            d3.select(this).style("fill", "#FBA90A");
+        })
+        .on("mouseout", function(d) {
+            tip.hide(d);
+            d3.select(this).style("fill", "#236AB9");
+        });
 }
 
 // draw y axis with axis label
