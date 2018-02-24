@@ -101,13 +101,13 @@ function extractData(data) {
 function drawBars(chart, sunshineHours, barWidth, height, y, tip) {
 
     // enter data
-    var bar = chart.selectAll("g")
+    var bar = chart.selectAll("rect")
         .data(sunshineHours)
-        .enter().append("g")
-        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ", 0)"; });
+        .enter();
 
     // add bars to chart
     bar.append("rect")
+        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ", 0)"; })
         .attr("y", function(d) { return y(d) })
         .attr("height", function(d) { return height - y(d); })
         .attr("width", barWidth - 1)
