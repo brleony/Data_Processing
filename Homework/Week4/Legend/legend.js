@@ -14,4 +14,14 @@ if (document.addEventListener) {
 
 function main() {
   console.log("hihi");
+
+  // determine svg attributes
+  var margin = {top: 20, right: 40, bottom: 30, left: 40},
+      height = 400 - margin.top - margin.bottom,
+      width = 600 - margin.right - margin.left
+
+  // set chart height and width
+  var chart = d3.select(".chart")
+      .attr("height", height + margin.top + margin.bottom)
+      .attr("width", width + margin.right + margin.left)
 }
