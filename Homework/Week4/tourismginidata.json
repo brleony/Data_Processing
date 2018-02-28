@@ -1,0 +1,408 @@
+[
+    {
+        "year": "2015",
+        "country": "Belgium",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "26.2"
+    },
+    {
+        "year": "2015",
+        "country": "Bulgaria",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "37.0"
+    },
+    {
+        "year": "2015",
+        "country": "Czech Republic",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "25.0"
+    },
+    {
+        "year": "2015",
+        "country": "Denmark",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "27.4"
+    },
+    {
+        "year": "2015",
+        "country": "Germany (until 1990 former territory of the FRG)",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "30.1"
+    },
+    {
+        "year": "2015",
+        "country": "Estonia",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "34.8"
+    },
+    {
+        "year": "2015",
+        "country": "Ireland",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "29.8"
+    },
+    {
+        "year": "2015",
+        "country": "Greece",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "34.2"
+    },
+    {
+        "year": "2015",
+        "country": "Spain",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "34.6"
+    },
+    {
+        "year": "2015",
+        "country": "France",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "29.2"
+    },
+    {
+        "year": "2015",
+        "country": "Croatia",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "30.4"
+    },
+    {
+        "year": "2015",
+        "country": "Italy",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "32.4"
+    },
+    {
+        "year": "2015",
+        "country": "Cyprus",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "33.6"
+    },
+    {
+        "year": "2015",
+        "country": "Latvia",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "35.4"
+    },
+    {
+        "year": "2015",
+        "country": "Lithuania",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "37.9"
+    },
+    {
+        "year": "2015",
+        "country": "Luxembourg",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "28.5"
+    },
+    {
+        "year": "2015",
+        "country": "Hungary",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "28.2"
+    },
+    {
+        "year": "2015",
+        "country": "Malta",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "28.1"
+    },
+    {
+        "year": "2015",
+        "country": "Netherlands",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "26.7"
+    },
+    {
+        "year": "2015",
+        "country": "Austria",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "27.2"
+    },
+    {
+        "year": "2015",
+        "country": "Poland",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "30.6"
+    },
+    {
+        "year": "2015",
+        "country": "Portugal",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "34.0"
+    },
+    {
+        "year": "2015",
+        "country": "Romania",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "37.4"
+    },
+    {
+        "year": "2015",
+        "country": "Slovenia",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "24.5"
+    },
+    {
+        "year": "2015",
+        "country": "Slovakia",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "23.7"
+    },
+    {
+        "year": "2015",
+        "country": "Finland",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "25.2"
+    },
+    {
+        "year": "2015",
+        "country": "Sweden",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "26.7"
+    },
+    {
+        "year": "2015",
+        "country": "United Kingdom",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "32.4"
+    },
+    {
+        "year": "2015",
+        "country": "Switzerland",
+        "unit": "Gini coefficient (scale from 0 to 100)",
+        "giniValue": "29.6"
+    },
+    {
+        "year": "2015",
+        "country": "Belgium",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "32.09"
+    },
+    {
+        "year": "2015",
+        "country": "Bulgaria",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "2.46"
+    },
+    {
+        "year": "2015",
+        "country": "Czech Republic",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "18.26"
+    },
+    {
+        "year": "2015",
+        "country": "Denmark",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "35.1"
+    },
+    {
+        "year": "2015",
+        "country": "Germany (until 1990 former territory of the FRG)",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "30.72"
+    },
+    {
+        "year": "2015",
+        "country": "Estonia",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "24.68"
+    },
+    {
+        "year": "2015",
+        "country": "Ireland",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "23.94"
+    },
+    {
+        "year": "2015",
+        "country": "Greece",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "3.07"
+    },
+    {
+        "year": "2015",
+        "country": "Spain",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "7.4"
+    },
+    {
+        "year": "2015",
+        "country": "France",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "7.22"
+    },
+    {
+        "year": "2015",
+        "country": "Croatia",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "5.64"
+    },
+    {
+        "year": "2015",
+        "country": "Italy",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "7.9"
+    },
+    {
+        "year": "2015",
+        "country": "Cyprus",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "14.97"
+    },
+    {
+        "year": "2015",
+        "country": "Latvia",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "18.15"
+    },
+    {
+        "year": "2015",
+        "country": "Lithuania",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "21.06"
+    },
+    {
+        "year": "2015",
+        "country": "Luxembourg",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "71.67"
+    },
+    {
+        "year": "2015",
+        "country": "Hungary",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "11.77"
+    },
+    {
+        "year": "2015",
+        "country": "Malta",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "28.52"
+    },
+    {
+        "year": "2015",
+        "country": "Netherlands",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "40.39"
+    },
+    {
+        "year": "2015",
+        "country": "Austria",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "19.12"
+    },
+    {
+        "year": "2015",
+        "country": "Poland",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "6.11"
+    },
+    {
+        "year": "2015",
+        "country": "Portugal",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "1.9"
+    },
+    {
+        "year": "2015",
+        "country": "Romania",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "1.25"
+    },
+    {
+        "year": "2015",
+        "country": "Slovenia",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "39.17"
+    },
+    {
+        "year": "2015",
+        "country": "Slovakia",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "24.5"
+    },
+    {
+        "year": "2015",
+        "country": "Finland",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "15.65"
+    },
+    {
+        "year": "2015",
+        "country": "Sweden",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "18.76"
+    },
+    {
+        "year": "2015",
+        "country": "United Kingdom",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "22.83"
+    },
+    {
+        "year": "2015",
+        "country": "Switzerland",
+        "unit": "Percentage of total population",
+        "duration": "4 nights or over",
+        "partner": "Outbound",
+        "tourismValue": "51.27"
+    }
+]
