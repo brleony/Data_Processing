@@ -18,21 +18,19 @@ if (document.addEventListener) {
 // create scatterplot
 function createScatterplot(error, gini, tourism) {
 
-    if(error) {
+    if (error) {
         console.log(error);
     }
 
-    data = extractData(gini, tourism);
-
-    // extract gini coefficients and tourism data
-    // var extractedData = extractData(gini, tourism);
-    // var giniData = extractedData[0];
-    // var tourismData = extractedData[1];
+    // get data from the csv files
+    var data = extractData(gini, tourism);
 
     // determine svg attributes
-    var margin = {top: 20, right: 30, bottom: 30, left: 40},
+    var margin = {top: 20, right: 200, bottom: 30, left: 40},
         height = 600 - margin.top - margin.bottom,
         width = 900 - margin.left - margin.right;
+
+    var color = d3.scale.category10();
 
     // set scatterplot height and width
     var scatterplot = d3.select(".scatterplot")
@@ -56,7 +54,10 @@ function createScatterplot(error, gini, tourism) {
     drawXAxis(scatterplot, height, width, x);
 
     // draw dots
-    drawDots(scatterplot, data, x, y);
+    drawDots(scatterplot, data, color, x, y);
+
+    // draw legend
+    drawLegend(scatterplot, color, height);
 }
 
 // extract gini coefficients and tourism data
@@ -66,11 +67,11 @@ function extractData(gini, tourism) {
 
     for (var i = 0, len = gini.length; i < len; i++) {
 
-      var datapoint = {country:gini[i]["GEO"], giniValue:gini[i]["GiniValue"], tourismValue:tourism[i]["TourismValue"]};
+      var datapoint = {country:gini[i]["GEO"], region:gini[i]["GEOREGION"],
+          giniValue:Number(gini[i]["GiniValue"]), tourismValue:Number(tourism[i]["TourismValue"])};
       data.push(datapoint);
     }
 
-    console.log(data)
     return data;
 }
 
@@ -111,7 +112,7 @@ function drawXAxis(scatterplot, height, width, x) {
 }
 
 // plot the dots
-function drawDots(scatterplot, data, x, y) {
+function drawDots(scatterplot, data, color, x, y) {
 
     scatterplot.selectAll(".dot")
         .data(data)
@@ -119,5 +120,37 @@ function drawDots(scatterplot, data, x, y) {
         .attr("class", "dot")
         .attr("r", 3.5)
         .attr("cx", function(d) { return x(d.tourismValue) })
-        .attr("cy", function(d) { return y(d.giniValue) });
+        .attr("cy", function(d) { return y(d.giniValue) })
+        .style("fill", function(d) { return color(d.region) });
+}
+
+// draw legend
+function drawLegend(scatterplot, color, height) {
+
+    // determine legend sizes
+    var spacing = 5,
+        legendRectSize = 30;
+
+    // initiate legend
+    var legend = scatterplot.selectAll("g")
+        .data(color.domain())
+        .enter().append("g")
+             .attr("class", "legend")
+             .attr("transform", function(d, i) {
+               var y = i * legendRectSize;
+               return "translate(0," + y + ")";
+             });
+
+    // add squares
+    legend.append("rect")
+        .attr("width", legendRectSize - 4)
+        .attr("height", legendRectSize - 4)
+        .style("fill", color)
+        .style("stroke", color);
+
+    // add labels
+    legend.append("text")
+        .attr("x", legendRectSize + spacing)
+        .attr("y", legendRectSize - spacing)
+        .text(function(d) { return d; });
 }
