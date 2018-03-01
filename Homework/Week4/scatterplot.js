@@ -10,7 +10,7 @@ if (document.addEventListener) {
       // get data from csv files
       d3.queue()
           .defer(d3.csv, "ginidata.csv")
-          .defer(d3.tsv, "tourismdata.csv")
+          .defer(d3.csv, "tourismdata.csv")
           .await(createScatterplot);
   });
 }
@@ -49,6 +49,15 @@ function createScatterplot(error, gini, tourism) {
         .domain([d3.max(data, function(d) { return d.tourismValue; }), 0])
         .range([width, 0]);
 
+    // create tooltip
+    var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(function(d) {
+         return "<strong>Gini coefficient:</strong> <span style='color:white'>" + "text" + "</span>";
+      })
+    scatterplot.call(tip);
+
     // draw axes
     drawYAxis(scatterplot, height, y);
     drawXAxis(scatterplot, height, width, x);
@@ -57,7 +66,7 @@ function createScatterplot(error, gini, tourism) {
     drawDots(scatterplot, data, color, x, y);
 
     // draw legend
-    drawLegend(scatterplot, color, height);
+    drawLegend(scatterplot, color, height, width);
 }
 
 // extract gini coefficients and tourism data
@@ -125,7 +134,7 @@ function drawDots(scatterplot, data, color, x, y) {
 }
 
 // draw legend
-function drawLegend(scatterplot, color, height) {
+function drawLegend(scatterplot, color, height, width) {
 
     // determine legend sizes
     var spacing = 5,
@@ -134,7 +143,8 @@ function drawLegend(scatterplot, color, height) {
     // initiate legend
     var legend = scatterplot.selectAll("g")
         .data(color.domain())
-        .enter().append("g")
+        .enter()
+        .append("g")
              .attr("class", "legend")
              .attr("transform", function(d, i) {
                var y = i * legendRectSize;
@@ -143,6 +153,7 @@ function drawLegend(scatterplot, color, height) {
 
     // add squares
     legend.append("rect")
+        .attr("x", width - legendRectSize)
         .attr("width", legendRectSize - 4)
         .attr("height", legendRectSize - 4)
         .style("fill", color)
@@ -150,7 +161,9 @@ function drawLegend(scatterplot, color, height) {
 
     // add labels
     legend.append("text")
-        .attr("x", legendRectSize + spacing)
-        .attr("y", legendRectSize - spacing)
-        .text(function(d) { return d; });
+        .attr("x", width - legendRectSize)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text("test");
 }
