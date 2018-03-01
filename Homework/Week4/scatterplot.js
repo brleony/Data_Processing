@@ -49,15 +49,6 @@ function createScatterplot(error, gini, tourism) {
         .domain([d3.max(data, function(d) { return d.tourismValue; }), 0])
         .range([width, 0]);
 
-    // create tooltip
-    var tip = d3.tip()
-      .attr('class', 'd3-tip')
-      .offset([-10, 0])
-      .html(function(d) {
-         return "<strong>Gini coefficient:</strong> <span style='color:white'>" + "text" + "</span>";
-      })
-    scatterplot.call(tip);
-
     // draw axes
     drawYAxis(scatterplot, height, y);
     drawXAxis(scatterplot, height, width, x);
@@ -123,14 +114,31 @@ function drawXAxis(scatterplot, height, width, x) {
 // plot the dots
 function drawDots(scatterplot, data, color, x, y) {
 
+    // create tooltip
+    var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(function(d) {
+         return d.country + "</br>Gini coefficient: " + d.giniValue + "<br/>Tourism: " + d.tourismValue + "%";
+      })
+
+    scatterplot.call(tip);
+
+    // draw dots
     scatterplot.selectAll(".dot")
         .data(data)
     .enter().append("circle")
         .attr("class", "dot")
-        .attr("r", 3.5)
+        .attr("r", 5)
         .attr("cx", function(d) { return x(d.tourismValue) })
         .attr("cy", function(d) { return y(d.giniValue) })
-        .style("fill", function(d) { return color(d.region) });
+        .style("fill", function(d) { return color(d.region) })
+        .on("mouseover", function(d) {
+            tip.show(d);
+        })
+        .on("mouseout", function(d) {
+            tip.hide(d);
+        });
 }
 
 // draw legend
@@ -141,7 +149,7 @@ function drawLegend(scatterplot, color, height, width) {
         legendRectSize = 30;
 
     // initiate legend
-    var legend = scatterplot.selectAll("g")
+    var legend = scatterplot.selectAll("g.legend")
         .data(color.domain())
         .enter()
         .append("g")
