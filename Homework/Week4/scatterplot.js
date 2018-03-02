@@ -14,19 +14,20 @@ if (document.addEventListener) {
       d3.queue()
           .defer(d3.csv, "ginidata.csv")
           .defer(d3.csv, "tourismdata.csv")
+          .defer(d3.csv, "gdpdata.csv")
           .await(createScatterplot);
   });
 }
 
 // create scatterplot
-function createScatterplot(error, gini, tourism) {
+function createScatterplot(error, gini, tourism, gdp) {
 
     if (error) {
         console.log(error);
     }
 
     // get data from the csv files
-    var data = extractData(gini, tourism);
+    var data = extractData(gini, tourism, gdp);
 
     // determine svg attributes
     var margin = {top: 20, right: 200, bottom: 30, left: 40},
@@ -64,14 +65,15 @@ function createScatterplot(error, gini, tourism) {
 }
 
 // extract gini coefficients and tourism data
-function extractData(gini, tourism) {
+function extractData(gini, tourism, gdp) {
 
     data = [];
 
     for (var i = 0, len = gini.length; i < len; i++) {
 
       var datapoint = {country:gini[i]["GEO"], region:gini[i]["GEOREGION"],
-          giniValue:Number(gini[i]["GiniValue"]), tourismValue:Number(tourism[i]["TourismValue"])};
+          giniValue:Number(gini[i]["GiniValue"]), tourismValue:Number(tourism[i]["TourismValue"]),
+          gdpValue:gdp[i]["Value"]};
       data.push(datapoint);
     }
 
@@ -132,7 +134,7 @@ function drawDots(scatterplot, data, color, x, y) {
         .data(data)
     .enter().append("circle")
         .attr("class", "dot")
-        .attr("r", 5)
+        .attr("r", function(d) { return d.gdpValue / 5000 })
         .attr("cx", function(d) { return x(d.tourismValue) })
         .attr("cy", function(d) { return y(d.giniValue) })
         .style("fill", function(d) { return color(d.region) })
