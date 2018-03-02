@@ -15,7 +15,7 @@ if (document.addEventListener) {
 
 function createLineGraph () {
 
-    d3.json("bmi.json", function(error, data) {
+    d3.json("employmentdata.json", function(error, data) {
 
         if (error) {
             console.log(error);
@@ -24,7 +24,7 @@ function createLineGraph () {
         // let's have a look at what data is...
         console.log(data);
 
-        // demonstration of how to access the data
-        console.log(data["fact"][612]["Value"]);
+        // ... and this is how you could access it
+        console.log(data["Italy"][0]["Employment"]["Part-time"]);
     });
 }
