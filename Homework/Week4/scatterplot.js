@@ -65,9 +65,8 @@ function createScatterplot(error, gini, tourism, gdp) {
     drawDots(scatterplot, data, color, x, y);
 
     // draw legends for color and size of dots
-    var legendOffset = 20;
-    drawLegendColor(scatterplot, color, margin, height, width, legendOffset);
-    drawLegendSize(scatterplot, margin, height, width, legendOffset);
+    drawLegendColor(scatterplot, color, margin, height, width);
+    drawLegendSize(scatterplot, margin, height, width);
 }
 
 // extract gini coefficients and tourism data
@@ -154,7 +153,9 @@ function drawDots(scatterplot, data, color, x, y) {
 }
 
 // draw legend for colors
-function drawLegendColor(scatterplot, color, margin, height, width, legendOffset) {
+function drawLegendColor(scatterplot, color, margin, height, width) {
+
+    var legendOffset = margin.right / 8;
 
     // initiate legend
     var legend = scatterplot.selectAll("g.legendcolor")
@@ -163,8 +164,8 @@ function drawLegendColor(scatterplot, color, margin, height, width, legendOffset
         .append("g")
              .attr("class", "legendcolor")
              .attr("transform", function(d, i) {
-               var y = i * legendOffset;
-               return "translate(0," + y + ")";
+               var y = i * legendOffset + legendOffset;
+               return "translate(20," + y + ")";
              });
 
     // add colored cicles
@@ -182,10 +183,14 @@ function drawLegendColor(scatterplot, color, margin, height, width, legendOffset
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d; });
+
+
 }
 
 // draw legend for the size of the dots
-function drawLegendSize(scatterplot, margin, height, width, legendOffset) {
+function drawLegendSize(scatterplot, margin, height, width) {
+
+    var legendOffset = margin.right / 8;
 
     // determine size of circles in legens
     var size = d3.scale.ordinal()
@@ -198,8 +203,8 @@ function drawLegendSize(scatterplot, margin, height, width, legendOffset) {
         .append("g")
              .attr("class", "legendsize")
              .attr("transform", function(d, i) {
-               var y = i * legendOffset;
-               return "translate(0," + y + ")";
+               var y = i * legendOffset + legendOffset * 8;
+               return "translate(20," + y + ")";
              });
 
     // add differnt sized circles
