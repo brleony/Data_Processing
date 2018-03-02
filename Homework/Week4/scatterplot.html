@@ -6,7 +6,7 @@ Student number: 10767215
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tourism and Income Equality in Europe in 2015</title>
+    <title>Tourism, Income Equality and GDP per capita in Europe in 2015</title>
     <link rel="stylesheet" type="text/css" href="scatterplot.css">
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
@@ -15,13 +15,16 @@ Student number: 10767215
   </head>
 
   <body>
-    <h1>Tourism and Income Equality in Europe in 2015</h1>
+    <h1>Tourism, Income Equality and GDP per capita in Europe in 2015</h1>
     <h3>Data Processing Week 4 Assignment</h3>
     <svg class="scatterplot"></svg>
     <p>Source: <a href="http://ec.europa.eu/eurostat/data/database">Eurostat</a></p>
-    <p>The income equality of ever is displayed on the y axis. It is measured by the <a href="https://en.wikipedia.org/wiki/Gini_coefficient">gini coefficient</a>, a measure that can range from 0 to 100.
+    <p>Income equality is displayed on the y axis. It is measured by the <a href="https://en.wikipedia.org/wiki/Gini_coefficient">gini coefficient</a>, a measure that can range from 0 to 100.
     A value above 50 is considered high, while 30 or above is considered medium and lower than 30 is considered low.</br>
     The value on the x axis, tourism, represents the percentage of the total population of the country that went on a trip abroad of 4 days or longer.</br>
+    The size of the dots is determined by the <a href="http://ec.europa.eu/eurostat/cache/metadata/en/nama10_esms.htm">GDP (Gross Domestic Product) per capita,
+      corrected for PPS (Purchasing Power Standards)</a>.
+    PPS is fictive 'currency' units that remove differences in purchasing power, i.e. different price levels between countries.</br>
     The region classification is according to the <a href="https://unstats.un.org/unsd/methodology/m49/">United Nations.</a></p>
     <p class="leony">By Leony Brok</p>
   </body>
