@@ -61,7 +61,7 @@ function createScatterplot(error, gini, tourism, gdp) {
     drawDots(scatterplot, data, color, x, y);
 
     // draw legend
-    drawLegend(scatterplot, data, color, height, width);
+    drawLegend(scatterplot, data, color, margin, height, width);
 }
 
 // extract gini coefficients and tourism data
@@ -119,12 +119,13 @@ function drawXAxis(scatterplot, height, width, x) {
 // plot the dots
 function drawDots(scatterplot, data, color, x, y) {
 
-    // create tooltip
+    // tooltip with country, region, gini index, tourism percentage and gdp/capita
     var tip = d3.tip()
       .attr('class', 'd3-tip')
       .offset([-10, 0])
       .html(function(d) {
-         return d.country + "</br>Gini coefficient: " + d.giniValue + "<br/>Tourism: " + d.tourismValue + "%</br>GDP per capita: " + d.gdpValue;
+         return d.country + " (" + d.region + ")</br>Gini coefficient: " + d.giniValue +
+         "<br/>Tourism: " + d.tourismValue + "%</br>GDP per capita: " + d.gdpValue;
       })
 
     scatterplot.call(tip);
@@ -134,7 +135,7 @@ function drawDots(scatterplot, data, color, x, y) {
         .data(data)
     .enter().append("circle")
         .attr("class", "dot")
-        .attr("r", function(d) { return d.gdpValue / 5000 })
+        .attr("r", function(d) { return d.gdpValue / 4000 })
         .attr("cx", function(d) { return x(d.tourismValue) })
         .attr("cy", function(d) { return y(d.giniValue) })
         .style("fill", function(d) { return color(d.region) })
@@ -147,11 +148,11 @@ function drawDots(scatterplot, data, color, x, y) {
 }
 
 // draw legend
-function drawLegend(scatterplot, data, color, height, width) {
+function drawLegend(scatterplot, data, color, margin, height, width) {
 
     // determine legend sizes
     var spacing = 5,
-        legendRectSize = 30;
+        legendDotSize = 20;
 
     // initiate legend
     var legend = scatterplot.selectAll("g.legend")
@@ -160,21 +161,20 @@ function drawLegend(scatterplot, data, color, height, width) {
         .append("g")
              .attr("class", "legend")
              .attr("transform", function(d, i) {
-               var y = i * legendRectSize;
+               var y = i * legendDotSize;
                return "translate(0," + y + ")";
              });
 
-    // add squares
-    legend.append("rect")
-        .attr("x", width - legendRectSize)
-        .attr("width", legendRectSize - 4)
-        .attr("height", legendRectSize - 4)
+    // add colored cicles
+    legend.append("circle")
+        .attr("r", legendDotSize - 5)
+        .attr("cx", width + margin.right - legendDotSize)
         .style("fill", color)
-        .style("stroke", color);
+        .style("stroke", "#000000");
 
-    // add labels
+    // add labels to colored circles
     legend.append("text")
-        .attr("x", width - legendRectSize - 10)
+        .attr("x", width + margin.right - legendDotSize - 10)
         .attr("y", 9)
         .attr("dy", ".35em")
         .style("text-anchor", "end")
