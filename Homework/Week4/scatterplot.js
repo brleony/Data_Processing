@@ -124,7 +124,7 @@ function drawDots(scatterplot, data, color, x, y) {
       .attr('class', 'd3-tip')
       .offset([-10, 0])
       .html(function(d) {
-         return d.country + "</br>Gini coefficient: " + d.giniValue + "<br/>Tourism: " + d.tourismValue + "%";
+         return d.country + "</br>Gini coefficient: " + d.giniValue + "<br/>Tourism: " + d.tourismValue + "%</br>GDP per capita: " + d.gdpValue;
       })
 
     scatterplot.call(tip);
