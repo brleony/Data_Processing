@@ -65,8 +65,8 @@ function createScatterplot(error, gini, tourism, gdp) {
     drawDots(scatterplot, data, color, x, y);
 
     // draw legends for color and size of dots
-    drawLegendColor(scatterplot, color, margin, height, width);
-    drawLegendSize(scatterplot, margin, height, width);
+    drawLegendColor(scatterplot, color, margin, width);
+    drawLegendSize(scatterplot, margin, width);
 }
 
 // extract gini coefficients and tourism data
@@ -152,21 +152,30 @@ function drawDots(scatterplot, data, color, x, y) {
         });
 }
 
-// draw legend for colors
-function drawLegendColor(scatterplot, color, margin, height, width) {
+// draw legend for colors of the dots
+function drawLegendColor(scatterplot, color, margin, width) {
 
+    // determine legend offset
     var legendOffset = margin.right / 8;
 
     // initiate legend
     var legend = scatterplot.selectAll("g.legendcolor")
         .data(color.domain())
-        .enter()
-        .append("g")
-             .attr("class", "legendcolor")
-             .attr("transform", function(d, i) {
-               var y = i * legendOffset + legendOffset;
-               return "translate(20," + y + ")";
-             });
+        .enter().append("g")
+           .attr("class", "legendcolor")
+           .attr("transform", function(d, i) {
+             var y = i * legendOffset + legendOffset;
+             return "translate(20," + y + ")";
+           });
+
+    // add legend title
+    d3.select("svg").append("text")
+      .attr("class", "legendcolortitle")
+      .attr("x", width + margin.right - (legendOffset * 2))
+      .attr("y", legendOffset)
+      .attr("dy", ".35em")
+      .style("font-weight", "bold")
+      .text("Region");
 
     // add colored cicles
     legend.append("circle")
@@ -174,7 +183,7 @@ function drawLegendColor(scatterplot, color, margin, height, width) {
         .attr("cx", width + margin.right - (legendOffset * 2))
         .attr("cy", 9)
         .style("fill", color)
-        .style("stroke", "#000000");
+        .style("stroke", "#000000")
 
     // add labels to colored circles
     legend.append("text")
@@ -183,31 +192,38 @@ function drawLegendColor(scatterplot, color, margin, height, width) {
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d; });
-
-
 }
 
 // draw legend for the size of the dots
-function drawLegendSize(scatterplot, margin, height, width) {
+function drawLegendSize(scatterplot, margin, width) {
 
+    // determine legend offset
     var legendOffset = margin.right / 8;
 
-    // determine size of circles in legens
+    // determine size of circles in legend
     var size = d3.scale.ordinal()
         .range([20000, 35000, 50000]);
 
     // initiate legend
     var legend = scatterplot.selectAll("g.legendsize")
         .data(size.range())
-        .enter()
-        .append("g")
-             .attr("class", "legendsize")
-             .attr("transform", function(d, i) {
-               var y = i * legendOffset + legendOffset * 8;
-               return "translate(20," + y + ")";
-             });
+        .enter().append("g")
+           .attr("class", "legendsize")
+           .attr("transform", function(d, i) {
+             var y = i * legendOffset + legendOffset * 8;
+             return "translate(20," + y + ")";
+           });
 
-    // add differnt sized circles
+     // add legend title
+     d3.select("svg").append("text")
+       .attr("class", "legendcolortitle")
+       .attr("x", width + margin.right - (legendOffset * 4))
+       .attr("y", legendOffset * 8)
+       .attr("dy", ".35em")
+       .style("font-weight", "bold")
+       .text("GDP per capita");
+
+    // add different sized circles
     legend.append("circle")
         .attr("r", function(d) { return d / 4000 })
         .attr("cx", width + margin.right - (legendOffset * 2))
@@ -222,5 +238,4 @@ function drawLegendSize(scatterplot, margin, height, width) {
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d; });
-
 }
