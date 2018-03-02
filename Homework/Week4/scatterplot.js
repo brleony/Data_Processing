@@ -25,8 +25,9 @@ if (document.addEventListener) {
 // create scatterplot
 function createScatterplot(error, gini, tourism, gdp) {
 
+    // alert if error
     if (error) {
-        console.log(error);
+        alert(error + " Could not load data :(");
     }
 
     // get data from the csv files
