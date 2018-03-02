@@ -60,8 +60,9 @@ function createScatterplot(error, gini, tourism, gdp) {
     // draw dots
     drawDots(scatterplot, data, color, x, y);
 
-    // draw legend
-    drawLegend(scatterplot, data, color, margin, height, width);
+    // draw legends for color and size of dots
+    drawLegendColor(scatterplot, data, color, margin, height, width);
+    drawLegendSize();
 }
 
 // extract gini coefficients and tourism data
@@ -148,11 +149,10 @@ function drawDots(scatterplot, data, color, x, y) {
 }
 
 // draw legend
-function drawLegend(scatterplot, data, color, margin, height, width) {
+function drawLegendColor(scatterplot, data, color, margin, height, width) {
 
     // determine legend sizes
-    var spacing = 5,
-        legendDotSize = 20;
+    var legendDotSize = 20;
 
     // initiate legend
     var legend = scatterplot.selectAll("g.legend")
@@ -167,16 +167,28 @@ function drawLegend(scatterplot, data, color, margin, height, width) {
 
     // add colored cicles
     legend.append("circle")
-        .attr("r", legendDotSize - 5)
-        .attr("cx", width + margin.right - legendDotSize)
+        .attr("r", legendDotSize / 2)
+        .attr("cx", width + margin.right - (legendDotSize * 2))
+        .attr("cy", 9)
         .style("fill", color)
         .style("stroke", "#000000");
 
     // add labels to colored circles
     legend.append("text")
-        .attr("x", width + margin.right - legendDotSize - 10)
-        .attr("y", 9)
+        .attr("x", width + margin.right - (legendDotSize * 3))
+        .attr("y", legendDotSize / 2)
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d; });
+}
+
+// draw legend for the size of the dots
+function drawLegendSize() {
+
+    console.log("HI!");
+
+    // add differnt sized circles
+
+    // add labels to different sized circles
+
 }
