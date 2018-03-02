@@ -5,7 +5,7 @@ Student number: 10767215
 Color scheme from colorbrewer2
 http://colorbrewer2.org
 
-Used scatterplot by Mike Bostock as example:
+Used scatterplot by Mike Bostock as example
 https://bl.ocks.org/mbostock/3887118
 */
 
@@ -66,8 +66,8 @@ function createScatterplot(error, gini, tourism, gdp) {
     drawDots(scatterplot, data, color, x, y);
 
     // draw legends for color and size of dots
-    drawLegendColor(scatterplot, color, margin, width);
-    drawLegendSize(scatterplot, margin, width);
+    drawLegendRegion(scatterplot, color, margin, width);
+    drawLegendGdp(scatterplot, margin, width);
 }
 
 // extract gini coefficients and tourism data
@@ -77,10 +77,12 @@ function extractData(gini, tourism, gdp) {
 
     for (var i = 0, len = gini.length; i < len; i++) {
 
-      var datapoint = {country:gini[i]["GEO"], region:gini[i]["GEOREGION"],
-          giniValue:Number(gini[i]["GiniValue"]), tourismValue:Number(tourism[i]["TourismValue"]),
-          gdpValue:gdp[i]["Value"]};
-      data.push(datapoint);
+        // create datapoint with country, region, gini value, tourism value and gdp value
+        var datapoint = {country:gini[i]["GEO"], region:gini[i]["GEOREGION"],
+            giniValue:Number(gini[i]["GiniValue"]), tourismValue:Number(tourism[i]["TourismValue"]),
+            gdpValue:gdp[i]["Value"]};
+
+        data.push(datapoint);
     }
 
     return data;
@@ -154,7 +156,7 @@ function drawDots(scatterplot, data, color, x, y) {
 }
 
 // draw legend for colors of the dots
-function drawLegendColor(scatterplot, color, margin, width) {
+function drawLegendRegion(scatterplot, color, margin, width) {
 
     // determine legend offset
     var legendOffset = margin.right / 8;
@@ -196,7 +198,7 @@ function drawLegendColor(scatterplot, color, margin, width) {
 }
 
 // draw legend for the size of the dots
-function drawLegendSize(scatterplot, margin, width) {
+function drawLegendGdp(scatterplot, margin, width) {
 
     // determine legend offset
     var legendOffset = margin.right / 8;
