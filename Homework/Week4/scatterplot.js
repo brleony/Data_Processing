@@ -2,6 +2,9 @@
 Name: Leony Brok
 Student number: 10767215
 
+Color scheme from colorbrewer2
+http://colorbrewer2.org
+
 Used scatterplot by Mike Bostock as example:
 https://bl.ocks.org/mbostock/3887118
 */
@@ -34,7 +37,8 @@ function createScatterplot(error, gini, tourism, gdp) {
         height = 600 - margin.top - margin.bottom,
         width = 900 - margin.left - margin.right;
 
-    var color = d3.scale.category10();
+    var color = d3.scale.ordinal()
+        .range(["#a6cee3", "#1f78b4", "#b2df8a","#33a02c"]);
 
     // set scatterplot height and width
     var scatterplot = d3.select(".scatterplot")
@@ -61,8 +65,9 @@ function createScatterplot(error, gini, tourism, gdp) {
     drawDots(scatterplot, data, color, x, y);
 
     // draw legends for color and size of dots
-    drawLegendColor(scatterplot, data, color, margin, height, width);
-    drawLegendSize();
+    var legendOffset = 20;
+    drawLegendColor(scatterplot, color, margin, height, width, legendOffset);
+    drawLegendSize(scatterplot, margin, height, width, legendOffset);
 }
 
 // extract gini coefficients and tourism data
@@ -148,47 +153,69 @@ function drawDots(scatterplot, data, color, x, y) {
         });
 }
 
-// draw legend
-function drawLegendColor(scatterplot, data, color, margin, height, width) {
-
-    // determine legend sizes
-    var legendDotSize = 20;
+// draw legend for colors
+function drawLegendColor(scatterplot, color, margin, height, width, legendOffset) {
 
     // initiate legend
-    var legend = scatterplot.selectAll("g.legend")
+    var legend = scatterplot.selectAll("g.legendcolor")
         .data(color.domain())
         .enter()
         .append("g")
-             .attr("class", "legend")
+             .attr("class", "legendcolor")
              .attr("transform", function(d, i) {
-               var y = i * legendDotSize;
+               var y = i * legendOffset;
                return "translate(0," + y + ")";
              });
 
     // add colored cicles
     legend.append("circle")
-        .attr("r", legendDotSize / 2)
-        .attr("cx", width + margin.right - (legendDotSize * 2))
+        .attr("r", legendOffset / 2)
+        .attr("cx", width + margin.right - (legendOffset * 2))
         .attr("cy", 9)
         .style("fill", color)
         .style("stroke", "#000000");
 
     // add labels to colored circles
     legend.append("text")
-        .attr("x", width + margin.right - (legendDotSize * 3))
-        .attr("y", legendDotSize / 2)
+        .attr("x", width + margin.right - (legendOffset * 3))
+        .attr("y", legendOffset / 2)
         .attr("dy", ".35em")
         .style("text-anchor", "end")
         .text(function(d) { return d; });
 }
 
 // draw legend for the size of the dots
-function drawLegendSize() {
+function drawLegendSize(scatterplot, margin, height, width, legendOffset) {
 
-    console.log("HI!");
+    // determine size of circles in legens
+    var size = d3.scale.ordinal()
+        .range([20000, 35000, 50000]);
+
+    // initiate legend
+    var legend = scatterplot.selectAll("g.legendsize")
+        .data(size.range())
+        .enter()
+        .append("g")
+             .attr("class", "legendsize")
+             .attr("transform", function(d, i) {
+               var y = i * legendOffset;
+               return "translate(0," + y + ")";
+             });
 
     // add differnt sized circles
+    legend.append("circle")
+        .attr("r", function(d) { return d / 4000 })
+        .attr("cx", width + margin.right - (legendOffset * 2))
+        .attr("cy", 9)
+        .style("fill", "white")
+        .style("stroke", "#000000");
 
     // add labels to different sized circles
+    legend.append("text")
+        .attr("x", width + margin.right - (legendOffset * 3))
+        .attr("y", legendOffset / 3)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text(function(d) { return d; });
 
 }

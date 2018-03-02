@@ -8,10 +8,6 @@ body {
     font-family: sans-serif;
 }
 
-.scatterplot dot{
-  fill: #000000;
-}
-
 .axis path,
 .axis line {
   fill: none;
