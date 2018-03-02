@@ -1,6 +1,9 @@
 /*
 Name: Leony Brok
 Student number: 10767215
+
+Used scatterplot by Mike Bostock as example:
+https://bl.ocks.org/mbostock/3887118
 */
 
 // wait until DOM has loaded
@@ -57,7 +60,7 @@ function createScatterplot(error, gini, tourism) {
     drawDots(scatterplot, data, color, x, y);
 
     // draw legend
-    drawLegend(scatterplot, color, height, width);
+    drawLegend(scatterplot, data, color, height, width);
 }
 
 // extract gini coefficients and tourism data
@@ -142,7 +145,7 @@ function drawDots(scatterplot, data, color, x, y) {
 }
 
 // draw legend
-function drawLegend(scatterplot, color, height, width) {
+function drawLegend(scatterplot, data, color, height, width) {
 
     // determine legend sizes
     var spacing = 5,
@@ -169,9 +172,9 @@ function drawLegend(scatterplot, color, height, width) {
 
     // add labels
     legend.append("text")
-        .attr("x", width - legendRectSize)
+        .attr("x", width - legendRectSize - 10)
         .attr("y", 9)
         .attr("dy", ".35em")
         .style("text-anchor", "end")
-        .text("test");
+        .text(function(d) { return d; });
 }
