@@ -18,13 +18,19 @@ function createLineGraph () {
     d3.json("employmentdata.json", function(error, data) {
 
         if (error) {
-            console.log(error);
+            alert(error + " Something went wrong :(");
         }
 
-        // let's have a look at what data is...
-        console.log(data);
+        // determine svg attributes
+        var margin = {top: 20, right: 200, bottom: 30, left: 40},
+            height = 600 - margin.top - margin.bottom,
+            width = 900 - margin.left - margin.right;
 
-        // ... and this is how you could access it
-        console.log(data["Italy"][0]["Employment"]["Part-time"]);
+        // set linegraph height and width
+        var scatterplot = d3.select(".linegraph")
+            .attr("height", height + margin.top + margin.bottom)
+            .attr("width", width + margin.left + margin.right)
+          .append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
     });
 }
