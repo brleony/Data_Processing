@@ -1,703 +1,703 @@
 {
-    "Netherlands": [
+    "Total": [
         {
             "Year": 1988,
-            "Employment": {
-                "Total": 5844.5,
-                "Part-time": 1750.2,
-                "Full-time": 4072.6
+            "Country": {
+                "Italy": 20729.8,
+                "Netherlands": 5844.5,
+                "United Kingdom": 25259.4
             }
         },
         {
             "Year": 1989,
-            "Employment": {
-                "Total": 5960.7,
-                "Part-time": 1860.5,
-                "Full-time": 4087.8
+            "Country": {
+                "Italy": 20425.9,
+                "Netherlands": 5960.7,
+                "United Kingdom": 26095.4
             }
         },
         {
             "Year": 1990,
-            "Employment": {
-                "Total": 6201.6,
-                "Part-time": 1936.4,
-                "Full-time": 4248.6
+            "Country": {
+                "Italy": 20826.6,
+                "Netherlands": 6201.6,
+                "United Kingdom": 26322.5
             }
         },
         {
             "Year": 1991,
-            "Employment": {
-                "Total": 6350.7,
-                "Part-time": 2045.3,
-                "Full-time": 4296.4
+            "Country": {
+                "Italy": 21145.8,
+                "Netherlands": 6350.7,
+                "United Kingdom": 25767.9
             }
         },
         {
             "Year": 1992,
-            "Employment": {
-                "Total": 6554.0,
-                "Part-time": 2239.6,
-                "Full-time": 4314.5
+            "Country": {
+                "Italy": 20451.3,
+                "Netherlands": 6554.0,
+                "United Kingdom": 25286.6
             }
         },
         {
             "Year": 1993,
-            "Employment": {
-                "Total": 6579.7,
-                "Part-time": 2280.6,
-                "Full-time": 4299.1
+            "Country": {
+                "Italy": 20129.2,
+                "Netherlands": 6579.7,
+                "United Kingdom": 25051.6
             }
         },
         {
             "Year": 1994,
-            "Employment": {
-                "Total": 6647.3,
-                "Part-time": 2396.8,
-                "Full-time": 4250.5
+            "Country": {
+                "Italy": 19860.9,
+                "Netherlands": 6647.3,
+                "United Kingdom": 25251.2
             }
         },
         {
             "Year": 1995,
-            "Employment": {
-                "Total": 6727.6,
-                "Part-time": 2485.9,
-                "Full-time": 4241.7
+            "Country": {
+                "Italy": 19666.3,
+                "Netherlands": 6727.6,
+                "United Kingdom": 25542.6
             }
         },
         {
             "Year": 1996,
-            "Employment": {
-                "Total": 6873.7,
-                "Part-time": 2593.7,
-                "Full-time": 4268.8
+            "Country": {
+                "Italy": 19764.3,
+                "Netherlands": 6873.7,
+                "United Kingdom": 25859.9
             }
         },
         {
             "Year": 1997,
-            "Employment": {
-                "Total": 7125.9,
-                "Part-time": 2679.3,
-                "Full-time": 4431.3
+            "Country": {
+                "Italy": 19851.3,
+                "Netherlands": 7125.9,
+                "United Kingdom": 26312.8
             }
         },
         {
             "Year": 1998,
-            "Employment": {
-                "Total": 7347.1,
-                "Part-time": 2816.8,
-                "Full-time": 4508.0
+            "Country": {
+                "Italy": 20050.7,
+                "Netherlands": 7347.1,
+                "United Kingdom": 26607.9
             }
         },
         {
             "Year": 1999,
-            "Employment": {
-                "Total": 7551.6,
-                "Part-time": 2947.0,
-                "Full-time": 4584.1
+            "Country": {
+                "Italy": 20291.8,
+                "Netherlands": 7551.6,
+                "United Kingdom": 26409.5
             }
         },
         {
             "Year": 2000,
-            "Employment": {
-                "Total": 7806.5,
-                "Part-time": 3203.5,
-                "Full-time": 4603.0
+            "Country": {
+                "Italy": 20619.9,
+                "Netherlands": 7806.5,
+                "United Kingdom": 26804.4
             }
         },
         {
             "Year": 2001,
-            "Employment": {
-                "Total": 7995.9,
-                "Part-time": 3350.0,
-                "Full-time": 4645.9
+            "Country": {
+                "Italy": 21045.2,
+                "Netherlands": 7995.9,
+                "United Kingdom": 27114.2
             }
         },
         {
             "Year": 2002,
-            "Employment": {
-                "Total": 8091.9,
-                "Part-time": 3510.2,
-                "Full-time": 4581.7
+            "Country": {
+                "Italy": 21416.3,
+                "Netherlands": 8091.9,
+                "United Kingdom": 27253.7
             }
         },
         {
             "Year": 2003,
-            "Employment": {
-                "Total": 8051.9,
-                "Part-time": 3595.0,
-                "Full-time": 4456.9
+            "Country": {
+                "Italy": 21716.3,
+                "Netherlands": 8051.9,
+                "United Kingdom": 27516.8
             }
         },
         {
             "Year": 2004,
-            "Employment": {
-                "Total": 8004.2,
-                "Part-time": 3618.0,
-                "Full-time": 4386.2
+            "Country": {
+                "Italy": 22044.7,
+                "Netherlands": 8004.2,
+                "United Kingdom": 27763.2
             }
         },
         {
             "Year": 2005,
-            "Employment": {
-                "Total": 8013.3,
-                "Part-time": 3661.9,
-                "Full-time": 4351.5
+            "Country": {
+                "Italy": 22060.4,
+                "Netherlands": 8013.3,
+                "United Kingdom": 28162.4
             }
         },
         {
             "Year": 2006,
-            "Employment": {
-                "Total": 8152.0,
-                "Part-time": 3730.2,
-                "Full-time": 4421.8
+            "Country": {
+                "Italy": 22388.3,
+                "Netherlands": 8152.0,
+                "United Kingdom": 28417.3
             }
         },
         {
             "Year": 2007,
-            "Employment": {
-                "Total": 8345.1,
-                "Part-time": 3866.0,
-                "Full-time": 4479.1
+            "Country": {
+                "Italy": 22517.4,
+                "Netherlands": 8345.1,
+                "United Kingdom": 28621.9
             }
         },
         {
             "Year": 2008,
-            "Employment": {
-                "Total": 8467.6,
-                "Part-time": 3965.8,
-                "Full-time": 4501.8
+            "Country": {
+                "Italy": 22698.6,
+                "Netherlands": 8467.6,
+                "United Kingdom": 28827.3
             }
         },
         {
             "Year": 2009,
-            "Employment": {
-                "Total": 8443.4,
-                "Part-time": 4023.8,
-                "Full-time": 4419.6
+            "Country": {
+                "Italy": 22324.2,
+                "Netherlands": 8443.4,
+                "United Kingdom": 28318.6
             }
         },
         {
             "Year": 2010,
-            "Employment": {
-                "Total": 8226.9,
-                "Part-time": 3971.0,
-                "Full-time": 4255.9
+            "Country": {
+                "Italy": 22151.6,
+                "Netherlands": 8226.9,
+                "United Kingdom": 28289.6
             }
         },
         {
             "Year": 2011,
-            "Employment": {
-                "Total": 8152.2,
-                "Part-time": 3939.0,
-                "Full-time": 4213.2
+            "Country": {
+                "Italy": 22214.9,
+                "Netherlands": 8152.2,
+                "United Kingdom": 28404.2
             }
         },
         {
             "Year": 2012,
-            "Employment": {
-                "Total": 8174.5,
-                "Part-time": 4003.3,
-                "Full-time": 4171.2
+            "Country": {
+                "Italy": 22149.2,
+                "Netherlands": 8174.5,
+                "United Kingdom": 28650.2
             }
         },
         {
             "Year": 2013,
-            "Employment": {
-                "Total": 8103.6,
-                "Part-time": 4035.8,
-                "Full-time": 4067.8
+            "Country": {
+                "Italy": 21755.3,
+                "Netherlands": 8103.6,
+                "United Kingdom": 28917.1
             }
         },
         {
             "Year": 2014,
-            "Employment": {
-                "Total": 8028.5,
-                "Part-time": 3978.9,
-                "Full-time": 4049.6
+            "Country": {
+                "Italy": 21809.5,
+                "Netherlands": 8028.5,
+                "United Kingdom": 29558.7
             }
         },
         {
             "Year": 2015,
-            "Employment": {
-                "Total": 8115.5,
-                "Part-time": 4054.9,
-                "Full-time": 4060.5
+            "Country": {
+                "Italy": 21972.6,
+                "Netherlands": 8115.5,
+                "United Kingdom": 30015.7
             }
         },
         {
             "Year": 2016,
-            "Employment": {
-                "Total": 8223.4,
-                "Part-time": 4085.8,
-                "Full-time": 4137.6
+            "Country": {
+                "Italy": 22241.1,
+                "Netherlands": 8223.4,
+                "United Kingdom": 30423.8
             }
         }
     ],
-    "Italy": [
+    "Part-time": [
         {
             "Year": 1988,
-            "Employment": {
-                "Total": 20729.8,
-                "Part-time": 1105.1,
-                "Full-time": 19619.8
+            "Country": {
+                "Italy": 1105.1,
+                "Netherlands": 1750.2,
+                "United Kingdom": 5323.9
             }
         },
         {
             "Year": 1989,
-            "Employment": {
-                "Total": 20425.9,
-                "Part-time": 1113.9,
-                "Full-time": 19299.0
+            "Country": {
+                "Italy": 1113.9,
+                "Netherlands": 1860.5,
+                "United Kingdom": 5311.8
             }
         },
         {
             "Year": 1990,
-            "Employment": {
-                "Total": 20826.6,
-                "Part-time": 969.2,
-                "Full-time": 19846.7
+            "Country": {
+                "Italy": 969.2,
+                "Netherlands": 1936.4,
+                "United Kingdom": 5380.2
             }
         },
         {
             "Year": 1991,
-            "Employment": {
-                "Total": 21145.8,
-                "Part-time": 1109.9,
-                "Full-time": 20028.5
+            "Country": {
+                "Italy": 1109.9,
+                "Netherlands": 2045.3,
+                "United Kingdom": 5411.5
             }
         },
         {
             "Year": 1992,
-            "Employment": {
-                "Total": 20451.3,
-                "Part-time": 1176.8,
-                "Full-time": 19274.5
+            "Country": {
+                "Italy": 1176.8,
+                "Netherlands": 2239.6,
+                "United Kingdom": 5523.1
             }
         },
         {
             "Year": 1993,
-            "Employment": {
-                "Total": 20129.2,
-                "Part-time": 1080.3,
-                "Full-time": 19048.9
+            "Country": {
+                "Italy": 1080.3,
+                "Netherlands": 2280.6,
+                "United Kingdom": 5626.5
             }
         },
         {
             "Year": 1994,
-            "Employment": {
-                "Total": 19860.9,
-                "Part-time": 1203.9,
-                "Full-time": 18657.1
+            "Country": {
+                "Italy": 1203.9,
+                "Netherlands": 2396.8,
+                "United Kingdom": 5804.4
             }
         },
         {
             "Year": 1995,
-            "Employment": {
-                "Total": 19666.3,
-                "Part-time": 1256.7,
-                "Full-time": 18409.6
+            "Country": {
+                "Italy": 1256.7,
+                "Netherlands": 2485.9,
+                "United Kingdom": 5908.0
             }
         },
         {
             "Year": 1996,
-            "Employment": {
-                "Total": 19764.3,
-                "Part-time": 1281.2,
-                "Full-time": 18483.1
+            "Country": {
+                "Italy": 1281.2,
+                "Netherlands": 2593.7,
+                "United Kingdom": 6146.9
             }
         },
         {
             "Year": 1997,
-            "Employment": {
-                "Total": 19851.3,
-                "Part-time": 1369.8,
-                "Full-time": 18481.6
+            "Country": {
+                "Italy": 1369.8,
+                "Netherlands": 2679.3,
+                "United Kingdom": 6341.3
             }
         },
         {
             "Year": 1998,
-            "Employment": {
-                "Total": 20050.7,
-                "Part-time": 1458.2,
-                "Full-time": 18592.5
+            "Country": {
+                "Italy": 1458.2,
+                "Netherlands": 2816.8,
+                "United Kingdom": 6386.6
             }
         },
         {
             "Year": 1999,
-            "Employment": {
-                "Total": 20291.8,
-                "Part-time": 1582.3,
-                "Full-time": 18709.5
+            "Country": {
+                "Italy": 1582.3,
+                "Netherlands": 2947.0,
+                "United Kingdom": 6393.5
             }
         },
         {
             "Year": 2000,
-            "Employment": {
-                "Total": 20619.9,
-                "Part-time": 1794.5,
-                "Full-time": 18825.3
+            "Country": {
+                "Italy": 1794.5,
+                "Netherlands": 3203.5,
+                "United Kingdom": 6522.8
             }
         },
         {
             "Year": 2001,
-            "Employment": {
-                "Total": 21045.2,
-                "Part-time": 1882.0,
-                "Full-time": 19163.3
+            "Country": {
+                "Italy": 1882.0,
+                "Netherlands": 3350.0,
+                "United Kingdom": 6607.7
             }
         },
         {
             "Year": 2002,
-            "Employment": {
-                "Total": 21416.3,
-                "Part-time": 1820.0,
-                "Full-time": 19596.3
+            "Country": {
+                "Italy": 1820.0,
+                "Netherlands": 3510.2,
+                "United Kingdom": 6666.0
             }
         },
         {
             "Year": 2003,
-            "Employment": {
-                "Total": 21716.3,
-                "Part-time": 1847.0,
-                "Full-time": 19869.2
+            "Country": {
+                "Italy": 1847.0,
+                "Netherlands": 3595.0,
+                "United Kingdom": 6858.4
             }
         },
         {
             "Year": 2004,
-            "Employment": {
-                "Total": 22044.7,
-                "Part-time": 2742.3,
-                "Full-time": 19302.4
+            "Country": {
+                "Italy": 2742.3,
+                "Netherlands": 3618.0,
+                "United Kingdom": 6947.1
             }
         },
         {
             "Year": 2005,
-            "Employment": {
-                "Total": 22060.4,
-                "Part-time": 2797.5,
-                "Full-time": 19263.0
+            "Country": {
+                "Italy": 2797.5,
+                "Netherlands": 3661.9,
+                "United Kingdom": 6805.5
             }
         },
         {
             "Year": 2006,
-            "Employment": {
-                "Total": 22388.3,
-                "Part-time": 2931.2,
-                "Full-time": 19457.0
+            "Country": {
+                "Italy": 2931.2,
+                "Netherlands": 3730.2,
+                "United Kingdom": 6865.9
             }
         },
         {
             "Year": 2007,
-            "Employment": {
-                "Total": 22517.4,
-                "Part-time": 3026.4,
-                "Full-time": 19491.0
+            "Country": {
+                "Italy": 3026.4,
+                "Netherlands": 3866.0,
+                "United Kingdom": 6888.1
             }
         },
         {
             "Year": 2008,
-            "Employment": {
-                "Total": 22698.6,
-                "Part-time": 3199.3,
-                "Full-time": 19499.3
+            "Country": {
+                "Italy": 3199.3,
+                "Netherlands": 3965.8,
+                "United Kingdom": 6959.6
             }
         },
         {
             "Year": 2009,
-            "Employment": {
-                "Total": 22324.2,
-                "Part-time": 3145.5,
-                "Full-time": 19178.7
+            "Country": {
+                "Italy": 3145.5,
+                "Netherlands": 4023.8,
+                "United Kingdom": 7059.3
             }
         },
         {
             "Year": 2010,
-            "Employment": {
-                "Total": 22151.6,
-                "Part-time": 3275.5,
-                "Full-time": 18876.1
+            "Country": {
+                "Italy": 3275.5,
+                "Netherlands": 3971.0,
+                "United Kingdom": 7254.0
             }
         },
         {
             "Year": 2011,
-            "Employment": {
-                "Total": 22214.9,
-                "Part-time": 3377.0,
-                "Full-time": 18837.9
+            "Country": {
+                "Italy": 3377.0,
+                "Netherlands": 3939.0,
+                "United Kingdom": 7254.6
             }
         },
         {
             "Year": 2012,
-            "Employment": {
-                "Total": 22149.2,
-                "Part-time": 3712.9,
-                "Full-time": 18436.2
+            "Country": {
+                "Italy": 3712.9,
+                "Netherlands": 4003.3,
+                "United Kingdom": 7428.2
             }
         },
         {
             "Year": 2013,
-            "Employment": {
-                "Total": 21755.3,
-                "Part-time": 3838.1,
-                "Full-time": 17917.2
+            "Country": {
+                "Italy": 3838.1,
+                "Netherlands": 4035.8,
+                "United Kingdom": 7390.5
             }
         },
         {
             "Year": 2014,
-            "Employment": {
-                "Total": 21809.5,
-                "Part-time": 3944.5,
-                "Full-time": 17865.0
+            "Country": {
+                "Italy": 3944.5,
+                "Netherlands": 3978.9,
+                "United Kingdom": 7478.1
             }
         },
         {
             "Year": 2015,
-            "Employment": {
-                "Total": 21972.6,
-                "Part-time": 4018.8,
-                "Full-time": 17953.8
+            "Country": {
+                "Italy": 4018.8,
+                "Netherlands": 4054.9,
+                "United Kingdom": 7549.9
             }
         },
         {
             "Year": 2016,
-            "Employment": {
-                "Total": 22241.1,
-                "Part-time": 4123.6,
-                "Full-time": 18117.6
+            "Country": {
+                "Italy": 4123.6,
+                "Netherlands": 4085.8,
+                "United Kingdom": 7660.1
             }
         }
     ],
-    "United Kingdom": [
+    "Full-time": [
         {
             "Year": 1988,
-            "Employment": {
-                "Total": 25259.4,
-                "Part-time": 5323.9,
-                "Full-time": 19834.9
+            "Country": {
+                "Italy": 19619.8,
+                "Netherlands": 4072.6,
+                "United Kingdom": 19834.9
             }
         },
         {
             "Year": 1989,
-            "Employment": {
-                "Total": 26095.4,
-                "Part-time": 5311.8,
-                "Full-time": 20274.5
+            "Country": {
+                "Italy": 19299.0,
+                "Netherlands": 4087.8,
+                "United Kingdom": 20274.5
             }
         },
         {
             "Year": 1990,
-            "Employment": {
-                "Total": 26322.5,
-                "Part-time": 5380.2,
-                "Full-time": 20465.2
+            "Country": {
+                "Italy": 19846.7,
+                "Netherlands": 4248.6,
+                "United Kingdom": 20465.2
             }
         },
         {
             "Year": 1991,
-            "Employment": {
-                "Total": 25767.9,
-                "Part-time": 5411.5,
-                "Full-time": 19918.2
+            "Country": {
+                "Italy": 20028.5,
+                "Netherlands": 4296.4,
+                "United Kingdom": 19918.2
             }
         },
         {
             "Year": 1992,
-            "Employment": {
-                "Total": 25286.6,
-                "Part-time": 5523.1,
-                "Full-time": 19437.4
+            "Country": {
+                "Italy": 19274.5,
+                "Netherlands": 4314.5,
+                "United Kingdom": 19437.4
             }
         },
         {
             "Year": 1993,
-            "Employment": {
-                "Total": 25051.6,
-                "Part-time": 5626.5,
-                "Full-time": 19370.7
+            "Country": {
+                "Italy": 19048.9,
+                "Netherlands": 4299.1,
+                "United Kingdom": 19370.7
             }
         },
         {
             "Year": 1994,
-            "Employment": {
-                "Total": 25251.2,
-                "Part-time": 5804.4,
-                "Full-time": 19396.5
+            "Country": {
+                "Italy": 18657.1,
+                "Netherlands": 4250.5,
+                "United Kingdom": 19396.5
             }
         },
         {
             "Year": 1995,
-            "Employment": {
-                "Total": 25542.6,
-                "Part-time": 5908.0,
-                "Full-time": 19580.8
+            "Country": {
+                "Italy": 18409.6,
+                "Netherlands": 4241.7,
+                "United Kingdom": 19580.8
             }
         },
         {
             "Year": 1996,
-            "Employment": {
-                "Total": 25859.9,
-                "Part-time": 6146.9,
-                "Full-time": 19675.0
+            "Country": {
+                "Italy": 18483.1,
+                "Netherlands": 4268.8,
+                "United Kingdom": 19675.0
             }
         },
         {
             "Year": 1997,
-            "Employment": {
-                "Total": 26312.8,
-                "Part-time": 6341.3,
-                "Full-time": 19933.8
+            "Country": {
+                "Italy": 18481.6,
+                "Netherlands": 4431.3,
+                "United Kingdom": 19933.8
             }
         },
         {
             "Year": 1998,
-            "Employment": {
-                "Total": 26607.9,
-                "Part-time": 6386.6,
-                "Full-time": 20184.5
+            "Country": {
+                "Italy": 18592.5,
+                "Netherlands": 4508.0,
+                "United Kingdom": 20184.5
             }
         },
         {
             "Year": 1999,
-            "Employment": {
-                "Total": 26409.5,
-                "Part-time": 6393.5,
-                "Full-time": 19987.0
+            "Country": {
+                "Italy": 18709.5,
+                "Netherlands": 4584.1,
+                "United Kingdom": 19987.0
             }
         },
         {
             "Year": 2000,
-            "Employment": {
-                "Total": 26804.4,
-                "Part-time": 6522.8,
-                "Full-time": 20258.1
+            "Country": {
+                "Italy": 18825.3,
+                "Netherlands": 4603.0,
+                "United Kingdom": 20258.1
             }
         },
         {
             "Year": 2001,
-            "Employment": {
-                "Total": 27114.2,
-                "Part-time": 6607.7,
-                "Full-time": 20470.8
+            "Country": {
+                "Italy": 19163.3,
+                "Netherlands": 4645.9,
+                "United Kingdom": 20470.8
             }
         },
         {
             "Year": 2002,
-            "Employment": {
-                "Total": 27253.7,
-                "Part-time": 6666.0,
-                "Full-time": 20559.6
+            "Country": {
+                "Italy": 19596.3,
+                "Netherlands": 4581.7,
+                "United Kingdom": 20559.6
             }
         },
         {
             "Year": 2003,
-            "Employment": {
-                "Total": 27516.8,
-                "Part-time": 6858.4,
-                "Full-time": 20628.1
+            "Country": {
+                "Italy": 19869.2,
+                "Netherlands": 4456.9,
+                "United Kingdom": 20628.1
             }
         },
         {
             "Year": 2004,
-            "Employment": {
-                "Total": 27763.2,
-                "Part-time": 6947.1,
-                "Full-time": 20777.4
+            "Country": {
+                "Italy": 19302.4,
+                "Netherlands": 4386.2,
+                "United Kingdom": 20777.4
             }
         },
         {
             "Year": 2005,
-            "Employment": {
-                "Total": 28162.4,
-                "Part-time": 6805.5,
-                "Full-time": 21322.9
+            "Country": {
+                "Italy": 19263.0,
+                "Netherlands": 4351.5,
+                "United Kingdom": 21322.9
             }
         },
         {
             "Year": 2006,
-            "Employment": {
-                "Total": 28417.3,
-                "Part-time": 6865.9,
-                "Full-time": 21517.2
+            "Country": {
+                "Italy": 19457.0,
+                "Netherlands": 4421.8,
+                "United Kingdom": 21517.2
             }
         },
         {
             "Year": 2007,
-            "Employment": {
-                "Total": 28621.9,
-                "Part-time": 6888.1,
-                "Full-time": 21686.6
+            "Country": {
+                "Italy": 19491.0,
+                "Netherlands": 4479.1,
+                "United Kingdom": 21686.6
             }
         },
         {
             "Year": 2008,
-            "Employment": {
-                "Total": 28827.3,
-                "Part-time": 6959.6,
-                "Full-time": 21806.7
+            "Country": {
+                "Italy": 19499.3,
+                "Netherlands": 4501.8,
+                "United Kingdom": 21806.7
             }
         },
         {
             "Year": 2009,
-            "Employment": {
-                "Total": 28318.6,
-                "Part-time": 7059.3,
-                "Full-time": 21191.2
+            "Country": {
+                "Italy": 19178.7,
+                "Netherlands": 4419.6,
+                "United Kingdom": 21191.2
             }
         },
         {
             "Year": 2010,
-            "Employment": {
-                "Total": 28289.6,
-                "Part-time": 7254.0,
-                "Full-time": 20958.2
+            "Country": {
+                "Italy": 18876.1,
+                "Netherlands": 4255.9,
+                "United Kingdom": 20958.2
             }
         },
         {
             "Year": 2011,
-            "Employment": {
-                "Total": 28404.2,
-                "Part-time": 7254.6,
-                "Full-time": 21077.2
+            "Country": {
+                "Italy": 18837.9,
+                "Netherlands": 4213.2,
+                "United Kingdom": 21077.2
             }
         },
         {
             "Year": 2012,
-            "Employment": {
-                "Total": 28650.2,
-                "Part-time": 7428.2,
-                "Full-time": 21138.5
+            "Country": {
+                "Italy": 18436.2,
+                "Netherlands": 4171.2,
+                "United Kingdom": 21138.5
             }
         },
         {
             "Year": 2013,
-            "Employment": {
-                "Total": 28917.1,
-                "Part-time": 7390.5,
-                "Full-time": 21443.3
+            "Country": {
+                "Italy": 17917.2,
+                "Netherlands": 4067.8,
+                "United Kingdom": 21443.3
             }
         },
         {
             "Year": 2014,
-            "Employment": {
-                "Total": 29558.7,
-                "Part-time": 7478.1,
-                "Full-time": 22011.9
+            "Country": {
+                "Italy": 17865.0,
+                "Netherlands": 4049.6,
+                "United Kingdom": 22011.9
             }
         },
         {
             "Year": 2015,
-            "Employment": {
-                "Total": 30015.7,
-                "Part-time": 7549.9,
-                "Full-time": 22390.4
+            "Country": {
+                "Italy": 17953.8,
+                "Netherlands": 4060.5,
+                "United Kingdom": 22390.4
             }
         },
         {
             "Year": 2016,
-            "Employment": {
-                "Total": 30423.8,
-                "Part-time": 7660.1,
-                "Full-time": 22711.0
+            "Country": {
+                "Italy": 18117.6,
+                "Netherlands": 4137.6,
+                "United Kingdom": 22711.0
             }
         }
     ]
