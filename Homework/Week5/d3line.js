@@ -6,8 +6,11 @@ Used linegraphs by Mike Bostock as example:
 https://bl.ocks.org/mbostock/3883245
 https://bl.ocks.org/mbostock/3884955
 
+Used answer by Gerardo Furtado:
+https://stackoverflow.com/questions/38687588/add-horizontal-crosshair-to-d3-js-chart
+
 Todo:
-label lines
+kleuren veranderen
 */
 
 // wait until DOM has loaded
@@ -25,16 +28,16 @@ if (document.addEventListener) {
 function createLineGraph(country) {
 
   // determine svg attributes
-  var margin = {top: 20, right: 30, bottom: 30, left: 40},
+  var margin = {top: 20, right: 150, bottom: 30, left: 40},
       width = 900 - margin.left - margin.right,
       height = 600 - margin.top - margin.bottom;
 
   // set chart height and width
   var linegraph = d3.select(".linegraph")
-      .attr("height", height + margin.top + margin.bottom)
-      .attr("width", width + margin.left + margin.right)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width + margin.left + margin.right)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   // scale x and y
   var x = d3.scaleTime()
@@ -43,7 +46,7 @@ function createLineGraph(country) {
       .rangeRound([height, 0]);
 
   var color = d3.scaleOrdinal()
-      .range(["#1b9e77", "#d95f02", "#7570b3"]);
+      .range(["#1f78b4", "#33a02c", "#b2df8a"]);
 
   // get data from json
   d3.json("employmentdata.json", function(error, data) {
@@ -53,7 +56,7 @@ function createLineGraph(country) {
         throw error;
     }
 
-    // get all possible employments
+    // get all employment types in data
     var employments = [];
     for (var employment in data) {
       if (!data.hasOwnProperty(employment)) {
@@ -92,49 +95,53 @@ function createLineGraph(country) {
 
     // create crosshair with labels
     createCrosshair(linegraph, employments, data, country, width, height, x, y);
+
+    // draw legend for line color
+    drawLegend(linegraph, color, margin, width);
   });
 };
 
-// draw the x axis and y axis
+/* draw the x axis and y axis */
 function drawAxes(linegraph, height, x, y) {
 
   // plot x-axis
   linegraph.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x))
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x))
 
   // plot y-axis
   linegraph.append("g")
-      .call(d3.axisLeft(y))
-    .append("text")
-      .attr("fill", "#000")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", "0.71em")
-      .attr("text-anchor", "end")
-      .text("People age 15-64 working (x1000)");
+    .call(d3.axisLeft(y))
+  .append("text")
+    .attr("fill", "#000")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", "0.71em")
+    .attr("text-anchor", "end")
+    .style("font", "14px sans-serif")
+    .text("People age 15-64 employed (x1000)");
 };
 
-// draw a line for every 'type' of employment
+/* draw a line for every 'type' of employment */
 function drawLines (linegraph, employments, data, country, color, x, y) {
 
   employments.forEach(function(employment) {
     var employmentData = data[employment];
 
     var line = d3.line()
-        .x(function(d) { return x(d.Year); })
-        .y(function(d) { return y(d.Country[country]); });
+      .x(function(d) { return x(d.Year); })
+      .y(function(d) { return y(d.Country[country]); });
 
     linegraph.append("path")
-        .datum(employmentData)
-        .attr("fill", "none")
-        .attr("stroke", color(employment))
-        .attr("stroke-width", 1.5)
-        .attr("d", line);
+      .datum(employmentData)
+      .attr("fill", "none")
+      .attr("stroke", color(employment))
+      .attr("stroke-width", 2)
+      .attr("d", line);
   });
 };
 
-// create a crosshair with labels
+/* create a crosshair with labels */
 function createCrosshair (linegraph, employments, data, country, width, height, x, y) {
 
   var bisect = d3.bisector(function(d) { return d.Year; }).left;
@@ -145,7 +152,7 @@ function createCrosshair (linegraph, employments, data, country, width, height, 
     .attr("y1", 0)
     .attr("y2", height)
     .attr("stroke", "black")
-    .attr("stroke-width", 1)
+    .attr("stroke-width", 0.5)
     .attr("pointer-events", "none");
 
   // create labels for every line
@@ -190,7 +197,7 @@ function createCrosshair (linegraph, employments, data, country, width, height, 
         .attr("dy", 20)
         .attr("dx", 4)
         .attr("opacity", 1)
-        .text(datum.Country[country]);
+        .text(String(datum.Country[country]) + "k");
     });
   // remove text and crosshair when mouse leaves transparent rect
   }).on("mouseout", function() {
@@ -199,4 +206,37 @@ function createCrosshair (linegraph, employments, data, country, width, height, 
       texts[employment].attr("opacity", 0)
     });
   });
+};
+
+/* draw legend for colors of the dots */
+function drawLegend(linegraph, color, margin, width) {
+
+    // determine legend offset
+    var legendOffset = margin.right / 8;
+
+    // initiate legend
+    var legend = linegraph.selectAll("g.legendcolor")
+        .data(color.domain())
+        .enter().append("g")
+           .attr("class", "legendcolor")
+           .attr("transform", function(d, i) {
+             var y = i * legendOffset + legendOffset;
+             return "translate(20," + y + ")";
+           });
+
+    // add colored cicles
+    legend.append("circle")
+        .attr("r", legendOffset / 2)
+        .attr("cx", width + margin.right - (legendOffset * 2))
+        .attr("cy", 9)
+        .style("fill", color)
+        .style("stroke", "#000000")
+
+    // add labels to colored circles
+    legend.append("text")
+        .attr("x", width + margin.right - (legendOffset * 3))
+        .attr("y", legendOffset / 2)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text(function(d) { return d; });
 };
