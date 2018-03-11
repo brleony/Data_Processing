@@ -7,3 +7,9 @@ body {
     background-color: #D4E4F7;
     font-family: sans-serif;
 }
+
+#inds {
+  	position: relative;
+  	top: -600px;
+  	left: 30px;
+}
