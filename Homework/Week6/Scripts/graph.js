@@ -1,6 +1,10 @@
 /**
 * Name: Leony Brok
 * Student number: 10767215
+*
+*
+* Map of the Netherlands by Phil Pedruco
+* http://bl.ocks.org/phil-pedruco/9344373
 
 Vragen:
 wat vind je van dit idee? complex genoeg?
@@ -50,8 +54,7 @@ function createGraph (error, religion) {
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var color = d3.scaleOrdinal()
-        .range(["#a6cee3", "#1f78b4", "#b2df8a","#33a02c"]);
+    drawMap(graph, width, height);
 };
 
 // extract data
@@ -78,3 +81,39 @@ function extractData(religion) {
 
     return data;
 }
+
+// draw map
+function drawMap(graph, width, height) {
+
+    var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    var projection = d3.geoMercator()
+    .scale(1)
+    .translate([0, 0]);
+
+    var path = d3.geoPath()
+        .projection(projection);
+
+    d3.json("Data/nld.json", function(error, nld) {
+
+        var l = topojson.feature(nld, nld.objects.subunits).features[3],
+            b = path.bounds(l),
+            s = .2 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+            t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+
+        projection
+            .scale(s)
+            .translate(t);
+
+        graph.selectAll("path")
+            .data(topojson.feature(nld, nld.objects.subunits).features).enter()
+            .append("path")
+            .attr("d", path)
+            .attr("fill", function(d, i) {
+                return color(i);
+            })
+            .attr("class", function(d, i) {
+                return d.properties.name;
+            });
+    });
+};
