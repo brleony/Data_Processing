@@ -10,7 +10,6 @@ Vragen:
 wat vind je van dit idee? complex genoeg?
 
 Todo:
-kaart van NL toevoegen
 kleur provincie op basis van datapoint
 tooltip voor kaart
 bar chart met welke religies
@@ -22,14 +21,15 @@ interactiviteit tussen grafieken: klik op provincie -> barchart voor die provinc
 if (document.addEventListener) {
     document.addEventListener("DOMContentLoaded", function() {
 
-    // get data from csv file
+    // get data from files
     d3.queue()
         .defer(d3.csv, "Data/religion.csv")
+        .defer(d3.json, "Data/nld.json")
         .await(createGraph);
   });
 }
 
-function createGraph (error, religion) {
+function createGraph (error, religion, nld) {
 
     // alert if error
     if (error) {
@@ -43,9 +43,9 @@ function createGraph (error, religion) {
     console.log(data);
 
     // determine svg attributes
-    var margin = {top: 20, right: 200, bottom: 30, left: 40},
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
         height = 600 - margin.top - margin.bottom,
-        width = 900 - margin.left - margin.right;
+        width = 600 - margin.left - margin.right;
 
     // set graph height and width
     var graph = d3.select(".graph")
@@ -54,7 +54,7 @@ function createGraph (error, religion) {
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    drawMap(graph, width, height);
+    drawMap(graph, nld, width, height);
 };
 
 // extract data
@@ -82,8 +82,13 @@ function extractData(religion) {
     return data;
 }
 
-// draw map
-function drawMap(graph, width, height) {
+/*
+* Draw a map of the Netherlands
+*
+* Based on example by Phil Pedruco
+* http://bl.ocks.org/phil-pedruco/9344373
+*/
+function drawMap(graph, nld, width, height) {
 
     var color = d3.scaleOrdinal(d3.schemeCategory20);
 
@@ -94,26 +99,23 @@ function drawMap(graph, width, height) {
     var path = d3.geoPath()
         .projection(projection);
 
-    d3.json("Data/nld.json", function(error, nld) {
+    var l = topojson.feature(nld, nld.objects.subunits).features[3],
+        b = path.bounds(l),
+        s = .2 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
+        t = ([(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2]);
 
-        var l = topojson.feature(nld, nld.objects.subunits).features[3],
-            b = path.bounds(l),
-            s = .2 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
-            t = [(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2];
+    projection
+        .scale(s)
+        .translate(t);
 
-        projection
-            .scale(s)
-            .translate(t);
-
-        graph.selectAll("path")
-            .data(topojson.feature(nld, nld.objects.subunits).features).enter()
-            .append("path")
-            .attr("d", path)
-            .attr("fill", function(d, i) {
-                return color(i);
-            })
-            .attr("class", function(d, i) {
-                return d.properties.name;
-            });
-    });
+    graph.selectAll("path")
+        .data(topojson.feature(nld, nld.objects.subunits).features).enter()
+        .append("path")
+        .attr("d", path)
+        .attr("fill", function(d, i) {
+            return color(i);
+        })
+        .attr("class", function(d, i) {
+            return d.properties.name;
+        });
 };
