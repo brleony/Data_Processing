@@ -8,9 +8,6 @@ https://bl.ocks.org/mbostock/3884955
 
 Used answer by Gerardo Furtado:
 https://stackoverflow.com/questions/38687588/add-horizontal-crosshair-to-d3-js-chart
-
-Todo:
-kleuren veranderen
 */
 
 // wait until DOM has loaded
