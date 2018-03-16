@@ -3,13 +3,9 @@
 * Student number: 10767215
 *
 *
-* Map of the Netherlands by Phil Pedruco
-* http://bl.ocks.org/phil-pedruco/9344373
-
 Todo:
 tooltip voor kaart
-fix x-as barchart
-tooltip bij barchart
+legenda voor kaart
 interactiviteit tussen grafieken: klik op provincie -> barchart voor die provincie
 **/
 

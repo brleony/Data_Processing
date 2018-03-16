@@ -1,11 +1,16 @@
-
+/*
+* Name: Leony Brok
+* Student number: 10767215
+*
+* Draws a bar chart.
+*/
 function drawBarchart(religion) {
 
   // determine svg attributes
-  var margin = {top: 20, right: 30, bottom: 30, left: 40},
+  var margin = {top: 20, right: 30, bottom: 220, left: 80},
       barWidth = 30,
       height = 600 - margin.top - margin.bottom,
-      width = 600;/*(barWidth * religion["Nederland"][0].length);*/
+      width = barWidth * (d3.keys(religion["Nederland"]["2010"]).length);
 
   // set chart height and width
   var barchart = d3.select(".barchart")
@@ -18,22 +23,22 @@ function drawBarchart(religion) {
       .domain([100, 0])
       .range([0, height]);
 
-  var x = d3.scalePoint()
-      .domain([d3.keys(religion["Nederland"]["2010"])])
+  var x = d3.scaleBand()
+      .domain(d3.keys(religion["Nederland"]["2010"]))
       .range([0, width]);
 
   // create tooltip
-  /*var tip = d3.tip()
+  var tip = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-       return "<strong>%</strong> <span style='color:#FBA90A'>" + d + "</span>";
+       return "<strong>" + d + " %</strong>";
     })
 
-  chart.call(tip);*/
+  barchart.call(tip);
 
   // draw bars
-  drawBars(barchart, religion, barWidth, height, y);
+  drawBars(barchart, religion, barWidth, height, y, tip);
 
   // draw axes
   drawYAxis(barchart, height, y);
@@ -42,7 +47,7 @@ function drawBarchart(religion) {
 
 
 // draw bars for hours of sunshine
-function drawBars(barchart, religion, barWidth, height, y) {
+function drawBars(barchart, religion, barWidth, height, y, tip) {
 
     // enter data
     var bar = barchart.selectAll("rect")
@@ -54,15 +59,15 @@ function drawBars(barchart, religion, barWidth, height, y) {
         .attr("transform", function(d, i) { return "translate(" + i * barWidth + ", 0)"; })
         .attr("y", function(d) { return y(d); })
         .attr("height", function(d) { return height - y(d); })
-        .attr("width", barWidth - 1);
-        /*.on("mouseover", function(d) {
+        .attr("width", barWidth - 1)
+        .on("mouseover", function(d) {
             tip.show(d);
-            d3.select(this).style("fill", "#FBA90A");
+            d3.select(this).style("fill", "#6C5F98");
         })
         .on("mouseout", function(d) {
             tip.hide(d);
-            d3.select(this).style("fill", "#236AB9");
-        });*/
+            d3.select(this).style("fill", "#241557");
+        });
 }
 
 // draw y axis with axis label
@@ -72,9 +77,12 @@ function drawYAxis(barchart, height, y) {
         .attr("class", "y axis")
         .call(d3.axisLeft(y))
       .append("text")
+        .attr("fill", "#000")
         .attr("transform", "rotate(-90)")
-        .attr("y", 6)
-        .attr("text-anchor", "end")
+        .attr("y", -60)
+        .attr("x", - (height / 2))
+        .attr("dy", "0.71em")
+        .style("font-weight", "bold")
         .text("% inwoners");
 }
 
@@ -85,9 +93,11 @@ function drawXAxis(barchart, height, x) {
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
-      .append("text")
-        .attr("x", 780)
-        .attr("dy", "2.50em")
+      .selectAll("text")
         .style("text-anchor", "end")
-        .text("Week");
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", function(d) {
+            return "rotate(-65)"
+          });
 }
