@@ -23,7 +23,7 @@ if (document.addEventListener) {
 
     // get data from files
     d3.queue()
-        .defer(d3.csv, "Data/religion.csv")
+        .defer(d3.json, "Data/religion.json")
         .defer(d3.json, "Data/nld.json")
         .await(createGraph);
   });
@@ -37,10 +37,7 @@ function createGraph (error, religion, nld) {
         throw error;
     }
 
-    // get data from the csv file
-    var data = extractData(religion);
-
-    console.log(data);
+    console.log(religion);
 
     // determine svg attributes
     var margin = {top: 20, right: 20, bottom: 20, left: 20},
@@ -54,33 +51,8 @@ function createGraph (error, religion, nld) {
       .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    drawMap(graph, nld, width, height);
+    drawMap(graph, nld, religion, width, height);
 };
-
-// extract data
-function extractData(religion) {
-
-    data = [];
-
-    for (var i = 0, len = religion.length; i < len; i++) {
-
-        // create datapoint with region, year and percentage of every category
-        var datapoint = {region:religion[i]["Regio"],
-            year:Number(religion[i]["Jaar"]),
-            aReligieus:Number(religion[i]["Geen kerkelijke gezindte"]),
-            religieus:Number(religion[i]["Totaal kerkelijke gezindte"]),
-            katholiek:Number(religion[i]["Rooms-Katholiek"]),
-            protestants:Number(religion[i]["Protestantse Kerk in Nederland"]),
-            hervormd:Number(religion[i]["Nederlands Hervormd"]),
-            gereformeerd:Number(religion[i]["Gereformeerd"]),
-            islam:Number(religion[i]["Islam"]),
-            overigReligieus:Number(religion[i]["Overige gezindte"])};
-
-        data.push(datapoint);
-    }
-
-    return data;
-}
 
 /*
 * Draw a map of the Netherlands
@@ -88,9 +60,7 @@ function extractData(religion) {
 * Based on example by Phil Pedruco
 * http://bl.ocks.org/phil-pedruco/9344373
 */
-function drawMap(graph, nld, width, height) {
-
-    var color = d3.scaleOrdinal(d3.schemeCategory20);
+function drawMap(graph, nld, religion, width, height) {
 
     var projection = d3.geoMercator()
     .scale(1)
@@ -112,10 +82,17 @@ function drawMap(graph, nld, width, height) {
         .data(topojson.feature(nld, nld.objects.subunits).features).enter()
         .append("path")
         .attr("d", path)
-        .attr("fill", function(d, i) {
-            return color(i);
-        })
+        .attr("fill", "black")
         .attr("class", function(d, i) {
             return d.properties.name;
-        });
+        })
+        .attr("fill-opacity", function(d, i) {
+            console.log(d);
+            if (d.properties.name && religion[d.properties.name]) {
+              return religion[d.properties.name][0]["Totaal kerkelijke gezindte"] / 100.0;
+            }
+            return 0;
+        })
+        .attr("stroke", "black")
+        .attr("stroke-width", 1);
 };
