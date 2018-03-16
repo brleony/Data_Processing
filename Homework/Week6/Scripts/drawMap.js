@@ -1,4 +1,7 @@
 /*
+* Name: Leony Brok
+* Student number: 10767215
+*
 * Draw a map of the Netherlands
 *
 * Based on example by Phil Pedruco
