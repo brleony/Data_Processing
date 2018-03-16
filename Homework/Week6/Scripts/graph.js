@@ -37,21 +37,9 @@ function createGraph (error, religion, nld) {
         throw error;
     }
 
-    console.log(religion);
+    drawMap(nld, religion);
 
-    // determine svg attributes
-    var margin = {top: 20, right: 20, bottom: 20, left: 20},
-        height = 600 - margin.top - margin.bottom,
-        width = 600 - margin.left - margin.right;
-
-    // set graph height and width
-    var graph = d3.select(".graph")
-        .attr("height", height + margin.top + margin.bottom)
-        .attr("width", width + margin.left + margin.right)
-      .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    drawMap(graph, nld, religion, width, height);
+    drawBarchart(religion);
 };
 
 /*
@@ -60,7 +48,17 @@ function createGraph (error, religion, nld) {
 * Based on example by Phil Pedruco
 * http://bl.ocks.org/phil-pedruco/9344373
 */
-function drawMap(graph, nld, religion, width, height) {
+function drawMap(nld, religion) {
+
+    // determine svg attributes
+    //var margin = {top: 20, right: 20, bottom: 20, left: 20},
+    var height = 600,
+        width = 700;
+
+    // set map height and width
+    var map = d3.select(".map")
+        .attr("height", height)
+        .attr("width", width - 100)
 
     var projection = d3.geoMercator()
     .scale(1)
@@ -76,23 +74,114 @@ function drawMap(graph, nld, religion, width, height) {
 
     projection
         .scale(s)
-        .translate(t);
+        .translate([t[0] - 150, t[1]]);
 
-    graph.selectAll("path")
+    map.selectAll("path")
         .data(topojson.feature(nld, nld.objects.subunits).features).enter()
         .append("path")
         .attr("d", path)
-        .attr("fill", "black")
         .attr("class", function(d, i) {
             return d.properties.name;
         })
         .attr("fill-opacity", function(d, i) {
-            console.log(d);
             if (d.properties.name && religion[d.properties.name]) {
-              return religion[d.properties.name][0]["Totaal kerkelijke gezindte"] / 100.0;
+              return religion[d.properties.name]["2010"]["Totaal kerkelijke gezindte"] / 100.0;
             }
             return 0;
         })
         .attr("stroke", "black")
         .attr("stroke-width", 1);
 };
+
+function drawBarchart(religion) {
+
+  // determine svg attributes
+  var margin = {top: 20, right: 30, bottom: 30, left: 40},
+      barWidth = 30,
+      height = 600 - margin.top - margin.bottom,
+      width = 600;/*(barWidth * religion["Nederland"][0].length);*/
+
+  // set chart height and width
+  var barchart = d3.select(".barchart")
+      .attr("height", height + margin.top + margin.bottom)
+      .attr("width", width + margin.left + margin.right)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  var y = d3.scaleLinear()
+      .domain([100, 0])
+      .range([0, height]);
+
+  var x = d3.scalePoint()
+      .domain([d3.keys(religion["Nederland"]["2010"])])
+      .range([0, width]);
+
+  // create tooltip
+  /*var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+    .html(function(d) {
+       return "<strong>%</strong> <span style='color:#FBA90A'>" + d + "</span>";
+    })
+
+  chart.call(tip);*/
+
+  // draw bars
+  drawBars(barchart, religion, barWidth, height, y);
+
+  // draw axes
+  drawYAxis(barchart, height, y);
+  drawXAxis(barchart, height, x);
+};
+
+
+// draw bars for hours of sunshine
+function drawBars(barchart, religion, barWidth, height, y) {
+
+    // enter data
+    var bar = barchart.selectAll("rect")
+        .data(d3.values(religion["Nederland"]["2010"]))
+        .enter();
+
+    // add bars to chart
+    bar.append("rect")
+        .attr("transform", function(d, i) { return "translate(" + i * barWidth + ", 0)"; })
+        .attr("y", function(d) { return y(d); })
+        .attr("height", function(d) { return height - y(d); })
+        .attr("width", barWidth - 1);
+        /*.on("mouseover", function(d) {
+            tip.show(d);
+            d3.select(this).style("fill", "#FBA90A");
+        })
+        .on("mouseout", function(d) {
+            tip.hide(d);
+            d3.select(this).style("fill", "#236AB9");
+        });*/
+}
+
+// draw y axis with axis label
+function drawYAxis(barchart, height, y) {
+
+    barchart.append("g")
+        .attr("class", "y axis")
+        .call(d3.axisLeft(y))
+      .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 6)
+        .attr("text-anchor", "end")
+        .text("% inwoners");
+}
+
+// draw x axis with axis label
+function drawXAxis(barchart, height, x) {
+
+    barchart.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x))
+      .append("text")
+        .attr("x", 780)
+        .attr("dy", "2.50em")
+        .style("text-anchor", "end")
+        .text("Week");
+}

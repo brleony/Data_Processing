@@ -7,3 +7,29 @@ body {
     background-color: #edf5f9;
     font-family: sans-serif;
 }
+
+.barchart rect {
+  fill: #241557;
+}
+.map path {
+  fill: #241557;
+}
+
+.axis text {
+  font: 12px sans-serif;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
