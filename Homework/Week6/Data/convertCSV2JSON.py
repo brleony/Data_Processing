@@ -21,14 +21,16 @@ if __name__ == "__main__":
         for datum in data:
             regio = datum["Regio"]
             del datum["Regio"]
-
+            year = datum["Jaar"]
+            del datum["Jaar"]
+            
             for key in datum:
                 datum[key] = int(datum[key])
 
             if regio not in out:
-                out[regio] = []
+                out[regio] = {}
 
-            out[regio].append(datum)
+            out[regio][year] = datum
 
         # write data to json file
         json.dump(out, jsonFile, indent = 4)

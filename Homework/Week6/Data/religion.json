@@ -1,7 +1,6 @@
 {
-    "Nederland": [
-        {
-            "Jaar": 2010,
+    "Nederland": {
+        "2010": {
             "Geen kerkelijke gezindte": 45,
             "Totaal kerkelijke gezindte": 55,
             "Rooms-Katholiek": 27,
@@ -11,8 +10,7 @@
             "Islam": 5,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 47,
             "Totaal kerkelijke gezindte": 53,
             "Rooms-Katholiek": 26,
@@ -22,8 +20,7 @@
             "Islam": 5,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 48,
             "Totaal kerkelijke gezindte": 52,
             "Rooms-Katholiek": 26,
@@ -33,8 +30,7 @@
             "Islam": 5,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 47,
             "Totaal kerkelijke gezindte": 53,
             "Rooms-Katholiek": 26,
@@ -44,8 +40,7 @@
             "Islam": 5,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 49,
             "Totaal kerkelijke gezindte": 51,
             "Rooms-Katholiek": 24,
@@ -55,8 +50,7 @@
             "Islam": 5,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 50,
             "Totaal kerkelijke gezindte": 50,
             "Rooms-Katholiek": 24,
@@ -66,10 +60,9 @@
             "Islam": 5,
             "Overige gezindte": 6
         }
-    ],
-    "Groningen": [
-        {
-            "Jaar": 2010,
+    },
+    "Groningen": {
+        "2010": {
             "Geen kerkelijke gezindte": 61,
             "Totaal kerkelijke gezindte": 39,
             "Rooms-Katholiek": 5,
@@ -79,8 +72,7 @@
             "Islam": 1,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 63,
             "Totaal kerkelijke gezindte": 37,
             "Rooms-Katholiek": 8,
@@ -90,8 +82,7 @@
             "Islam": 2,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 64,
             "Totaal kerkelijke gezindte": 36,
             "Rooms-Katholiek": 5,
@@ -101,8 +92,7 @@
             "Islam": 2,
             "Overige gezindte": 4
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 64,
             "Totaal kerkelijke gezindte": 36,
             "Rooms-Katholiek": 6,
@@ -112,8 +102,7 @@
             "Islam": 2,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 66,
             "Totaal kerkelijke gezindte": 34,
             "Rooms-Katholiek": 5,
@@ -123,8 +112,7 @@
             "Islam": 2,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 69,
             "Totaal kerkelijke gezindte": 31,
             "Rooms-Katholiek": 5,
@@ -134,10 +122,9 @@
             "Islam": 1,
             "Overige gezindte": 6
         }
-    ],
-    "Friesland": [
-        {
-            "Jaar": 2010,
+    },
+    "Friesland": {
+        "2010": {
             "Geen kerkelijke gezindte": 55,
             "Totaal kerkelijke gezindte": 45,
             "Rooms-Katholiek": 6,
@@ -147,8 +134,7 @@
             "Islam": 1,
             "Overige gezindte": 4
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 53,
             "Totaal kerkelijke gezindte": 48,
             "Rooms-Katholiek": 7,
@@ -158,8 +144,7 @@
             "Islam": 1,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 53,
             "Totaal kerkelijke gezindte": 47,
             "Rooms-Katholiek": 7,
@@ -169,8 +154,7 @@
             "Islam": 1,
             "Overige gezindte": 4
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 54,
             "Totaal kerkelijke gezindte": 46,
             "Rooms-Katholiek": 8,
@@ -180,8 +164,7 @@
             "Islam": 1,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 58,
             "Totaal kerkelijke gezindte": 42,
             "Rooms-Katholiek": 5,
@@ -191,8 +174,7 @@
             "Islam": 1,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 58,
             "Totaal kerkelijke gezindte": 42,
             "Rooms-Katholiek": 7,
@@ -202,10 +184,9 @@
             "Islam": 1,
             "Overige gezindte": 7
         }
-    ],
-    "Drenthe": [
-        {
-            "Jaar": 2010,
+    },
+    "Drenthe": {
+        "2010": {
             "Geen kerkelijke gezindte": 55,
             "Totaal kerkelijke gezindte": 45,
             "Rooms-Katholiek": 9,
@@ -215,8 +196,7 @@
             "Islam": 1,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 55,
             "Totaal kerkelijke gezindte": 45,
             "Rooms-Katholiek": 8,
@@ -226,8 +206,7 @@
             "Islam": 1,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 59,
             "Totaal kerkelijke gezindte": 41,
             "Rooms-Katholiek": 8,
@@ -237,8 +216,7 @@
             "Islam": 1,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 60,
             "Totaal kerkelijke gezindte": 40,
             "Rooms-Katholiek": 10,
@@ -248,8 +226,7 @@
             "Islam": 1,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 61,
             "Totaal kerkelijke gezindte": 39,
             "Rooms-Katholiek": 8,
@@ -259,8 +236,7 @@
             "Islam": 1,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 62,
             "Totaal kerkelijke gezindte": 38,
             "Rooms-Katholiek": 9,
@@ -270,10 +246,9 @@
             "Islam": 1,
             "Overige gezindte": 4
         }
-    ],
-    "Overijssel": [
-        {
-            "Jaar": 2010,
+    },
+    "Overijssel": {
+        "2010": {
             "Geen kerkelijke gezindte": 39,
             "Totaal kerkelijke gezindte": 61,
             "Rooms-Katholiek": 26,
@@ -283,8 +258,7 @@
             "Islam": 3,
             "Overige gezindte": 4
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 42,
             "Totaal kerkelijke gezindte": 58,
             "Rooms-Katholiek": 25,
@@ -294,8 +268,7 @@
             "Islam": 3,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 43,
             "Totaal kerkelijke gezindte": 57,
             "Rooms-Katholiek": 22,
@@ -305,8 +278,7 @@
             "Islam": 3,
             "Overige gezindte": 7
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 43,
             "Totaal kerkelijke gezindte": 56,
             "Rooms-Katholiek": 23,
@@ -316,8 +288,7 @@
             "Islam": 3,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 43,
             "Totaal kerkelijke gezindte": 57,
             "Rooms-Katholiek": 22,
@@ -327,8 +298,7 @@
             "Islam": 4,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 42,
             "Totaal kerkelijke gezindte": 58,
             "Rooms-Katholiek": 23,
@@ -338,10 +308,9 @@
             "Islam": 3,
             "Overige gezindte": 6
         }
-    ],
-    "Flevoland": [
-        {
-            "Jaar": 2010,
+    },
+    "Flevoland": {
+        "2010": {
             "Geen kerkelijke gezindte": 53,
             "Totaal kerkelijke gezindte": 47,
             "Rooms-Katholiek": 12,
@@ -351,8 +320,7 @@
             "Islam": 5,
             "Overige gezindte": 10
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 56,
             "Totaal kerkelijke gezindte": 44,
             "Rooms-Katholiek": 12,
@@ -362,8 +330,7 @@
             "Islam": 4,
             "Overige gezindte": 8
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 58,
             "Totaal kerkelijke gezindte": 42,
             "Rooms-Katholiek": 12,
@@ -373,8 +340,7 @@
             "Islam": 5,
             "Overige gezindte": 8
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 55,
             "Totaal kerkelijke gezindte": 45,
             "Rooms-Katholiek": 14,
@@ -384,8 +350,7 @@
             "Islam": 6,
             "Overige gezindte": 8
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 54,
             "Totaal kerkelijke gezindte": 46,
             "Rooms-Katholiek": 13,
@@ -395,8 +360,7 @@
             "Islam": 6,
             "Overige gezindte": 10
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 55,
             "Totaal kerkelijke gezindte": 45,
             "Rooms-Katholiek": 12,
@@ -406,10 +370,9 @@
             "Islam": 7,
             "Overige gezindte": 10
         }
-    ],
-    "Gelderland": [
-        {
-            "Jaar": 2010,
+    },
+    "Gelderland": {
+        "2010": {
             "Geen kerkelijke gezindte": 42,
             "Totaal kerkelijke gezindte": 59,
             "Rooms-Katholiek": 24,
@@ -419,8 +382,7 @@
             "Islam": 3,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 44,
             "Totaal kerkelijke gezindte": 56,
             "Rooms-Katholiek": 24,
@@ -430,8 +392,7 @@
             "Islam": 3,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 44,
             "Totaal kerkelijke gezindte": 56,
             "Rooms-Katholiek": 23,
@@ -441,8 +402,7 @@
             "Islam": 4,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 44,
             "Totaal kerkelijke gezindte": 56,
             "Rooms-Katholiek": 23,
@@ -452,8 +412,7 @@
             "Islam": 3,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 47,
             "Totaal kerkelijke gezindte": 53,
             "Rooms-Katholiek": 21,
@@ -463,8 +422,7 @@
             "Islam": 4,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 47,
             "Totaal kerkelijke gezindte": 53,
             "Rooms-Katholiek": 21,
@@ -474,10 +432,9 @@
             "Islam": 4,
             "Overige gezindte": 5
         }
-    ],
-    "Utrecht": [
-        {
-            "Jaar": 2010,
+    },
+    "Utrecht": {
+        "2010": {
             "Geen kerkelijke gezindte": 48,
             "Totaal kerkelijke gezindte": 52,
             "Rooms-Katholiek": 17,
@@ -487,8 +444,7 @@
             "Islam": 6,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 53,
             "Totaal kerkelijke gezindte": 47,
             "Rooms-Katholiek": 18,
@@ -498,8 +454,7 @@
             "Islam": 6,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 52,
             "Totaal kerkelijke gezindte": 48,
             "Rooms-Katholiek": 17,
@@ -509,8 +464,7 @@
             "Islam": 6,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 52,
             "Totaal kerkelijke gezindte": 48,
             "Rooms-Katholiek": 17,
@@ -520,8 +474,7 @@
             "Islam": 5,
             "Overige gezindte": 8
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 53,
             "Totaal kerkelijke gezindte": 47,
             "Rooms-Katholiek": 16,
@@ -531,8 +484,7 @@
             "Islam": 6,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 55,
             "Totaal kerkelijke gezindte": 45,
             "Rooms-Katholiek": 13,
@@ -542,10 +494,9 @@
             "Islam": 6,
             "Overige gezindte": 7
         }
-    ],
-    "Noord-Holland": [
-        {
-            "Jaar": 2010,
+    },
+    "Noord-Holland": {
+        "2010": {
             "Geen kerkelijke gezindte": 61,
             "Totaal kerkelijke gezindte": 39,
             "Rooms-Katholiek": 19,
@@ -555,8 +506,7 @@
             "Islam": 5,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 62,
             "Totaal kerkelijke gezindte": 39,
             "Rooms-Katholiek": 17,
@@ -566,8 +516,7 @@
             "Islam": 6,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 61,
             "Totaal kerkelijke gezindte": 39,
             "Rooms-Katholiek": 19,
@@ -577,8 +526,7 @@
             "Islam": 7,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 60,
             "Totaal kerkelijke gezindte": 40,
             "Rooms-Katholiek": 18,
@@ -588,8 +536,7 @@
             "Islam": 7,
             "Overige gezindte": 7
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 62,
             "Totaal kerkelijke gezindte": 38,
             "Rooms-Katholiek": 17,
@@ -599,8 +546,7 @@
             "Islam": 6,
             "Overige gezindte": 7
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 63,
             "Totaal kerkelijke gezindte": 37,
             "Rooms-Katholiek": 16,
@@ -610,10 +556,9 @@
             "Islam": 7,
             "Overige gezindte": 6
         }
-    ],
-    "Zuid-Holland": [
-        {
-            "Jaar": 2010,
+    },
+    "Zuid-Holland": {
+        "2010": {
             "Geen kerkelijke gezindte": 49,
             "Totaal kerkelijke gezindte": 51,
             "Rooms-Katholiek": 16,
@@ -623,8 +568,7 @@
             "Islam": 8,
             "Overige gezindte": 7
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 50,
             "Totaal kerkelijke gezindte": 50,
             "Rooms-Katholiek": 15,
@@ -634,8 +578,7 @@
             "Islam": 8,
             "Overige gezindte": 7
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 51,
             "Totaal kerkelijke gezindte": 49,
             "Rooms-Katholiek": 15,
@@ -645,8 +588,7 @@
             "Islam": 8,
             "Overige gezindte": 8
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 50,
             "Totaal kerkelijke gezindte": 50,
             "Rooms-Katholiek": 16,
@@ -656,8 +598,7 @@
             "Islam": 8,
             "Overige gezindte": 8
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 52,
             "Totaal kerkelijke gezindte": 49,
             "Rooms-Katholiek": 15,
@@ -667,8 +608,7 @@
             "Islam": 8,
             "Overige gezindte": 8
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 52,
             "Totaal kerkelijke gezindte": 48,
             "Rooms-Katholiek": 14,
@@ -678,10 +618,9 @@
             "Islam": 8,
             "Overige gezindte": 8
         }
-    ],
-    "Zeeland": [
-        {
-            "Jaar": 2010,
+    },
+    "Zeeland": {
+        "2010": {
             "Geen kerkelijke gezindte": 44,
             "Totaal kerkelijke gezindte": 56,
             "Rooms-Katholiek": 18,
@@ -691,8 +630,7 @@
             "Islam": 2,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 46,
             "Totaal kerkelijke gezindte": 54,
             "Rooms-Katholiek": 18,
@@ -702,8 +640,7 @@
             "Islam": 2,
             "Overige gezindte": 5
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 48,
             "Totaal kerkelijke gezindte": 52,
             "Rooms-Katholiek": 17,
@@ -713,8 +650,7 @@
             "Islam": 1,
             "Overige gezindte": 4
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 43,
             "Totaal kerkelijke gezindte": 57,
             "Rooms-Katholiek": 18,
@@ -724,8 +660,7 @@
             "Islam": 2,
             "Overige gezindte": 8
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 47,
             "Totaal kerkelijke gezindte": 53,
             "Rooms-Katholiek": 16,
@@ -735,8 +670,7 @@
             "Islam": 3,
             "Overige gezindte": 6
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 47,
             "Totaal kerkelijke gezindte": 53,
             "Rooms-Katholiek": 16,
@@ -746,10 +680,9 @@
             "Islam": 2,
             "Overige gezindte": 8
         }
-    ],
-    "Noord-Brabant": [
-        {
-            "Jaar": 2010,
+    },
+    "Noord-Brabant": {
+        "2010": {
             "Geen kerkelijke gezindte": 32,
             "Totaal kerkelijke gezindte": 69,
             "Rooms-Katholiek": 55,
@@ -759,8 +692,7 @@
             "Islam": 4,
             "Overige gezindte": 3
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 32,
             "Totaal kerkelijke gezindte": 68,
             "Rooms-Katholiek": 55,
@@ -770,8 +702,7 @@
             "Islam": 4,
             "Overige gezindte": 3
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 35,
             "Totaal kerkelijke gezindte": 65,
             "Rooms-Katholiek": 53,
@@ -781,8 +712,7 @@
             "Islam": 4,
             "Overige gezindte": 3
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 34,
             "Totaal kerkelijke gezindte": 66,
             "Rooms-Katholiek": 53,
@@ -792,8 +722,7 @@
             "Islam": 5,
             "Overige gezindte": 3
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 38,
             "Totaal kerkelijke gezindte": 62,
             "Rooms-Katholiek": 49,
@@ -803,8 +732,7 @@
             "Islam": 4,
             "Overige gezindte": 3
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 39,
             "Totaal kerkelijke gezindte": 61,
             "Rooms-Katholiek": 48,
@@ -814,10 +742,9 @@
             "Islam": 5,
             "Overige gezindte": 3
         }
-    ],
-    "Limburg": [
-        {
-            "Jaar": 2010,
+    },
+    "Limburg": {
+        "2010": {
             "Geen kerkelijke gezindte": 21,
             "Totaal kerkelijke gezindte": 79,
             "Rooms-Katholiek": 72,
@@ -827,8 +754,7 @@
             "Islam": 3,
             "Overige gezindte": 2
         },
-        {
-            "Jaar": 2011,
+        "2011": {
             "Geen kerkelijke gezindte": 23,
             "Totaal kerkelijke gezindte": 77,
             "Rooms-Katholiek": 69,
@@ -838,8 +764,7 @@
             "Islam": 3,
             "Overige gezindte": 2
         },
-        {
-            "Jaar": 2012,
+        "2012": {
             "Geen kerkelijke gezindte": 24,
             "Totaal kerkelijke gezindte": 76,
             "Rooms-Katholiek": 68,
@@ -849,8 +774,7 @@
             "Islam": 4,
             "Overige gezindte": 2
         },
-        {
-            "Jaar": 2013,
+        "2013": {
             "Geen kerkelijke gezindte": 23,
             "Totaal kerkelijke gezindte": 77,
             "Rooms-Katholiek": 67,
@@ -860,8 +784,7 @@
             "Islam": 5,
             "Overige gezindte": 3
         },
-        {
-            "Jaar": 2014,
+        "2014": {
             "Geen kerkelijke gezindte": 25,
             "Totaal kerkelijke gezindte": 75,
             "Rooms-Katholiek": 66,
@@ -871,8 +794,7 @@
             "Islam": 4,
             "Overige gezindte": 2
         },
-        {
-            "Jaar": 2015,
+        "2015": {
             "Geen kerkelijke gezindte": 28,
             "Totaal kerkelijke gezindte": 72,
             "Rooms-Katholiek": 64,
@@ -882,5 +804,5 @@
             "Islam": 4,
             "Overige gezindte": 2
         }
-    ]
+    }
 }
