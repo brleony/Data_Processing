@@ -62,7 +62,7 @@ function drawBars(barchart, religion, barWidth, height, y, tip) {
         .attr("width", barWidth - 1)
         .on("mouseover", function(d) {
             tip.show(d);
-            d3.select(this).style("fill", "#6C5F98");
+            d3.select(this).style("fill", "#93B7BE");
         })
         .on("mouseout", function(d) {
             tip.hide(d);

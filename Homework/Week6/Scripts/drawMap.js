@@ -19,6 +19,14 @@ function drawMap(nld, religion) {
         .attr("height", height)
         .attr("width", width - 100)
 
+    // create tooltip
+    var tip = d3.tip()
+      .attr('class', 'd3-tip')
+      .offset([-10, 0])
+      .html(function(d) {
+         return "<strong>" + d + " %</strong>";
+      })
+
     var projection = d3.geoMercator()
     .scale(1)
     .translate([0, 0]);

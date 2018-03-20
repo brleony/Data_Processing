@@ -4,10 +4,13 @@ Student number: 10767215
 -->
 
 <!DOCTYPE html>
-<html>
+<html lang="nl">
   <head>
     <title>Religie in Nederland</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="Style/graph.css">
+
     <script src="https://d3js.org/d3.v4.min.js"></script> <!-- D3 library version 4 -->
     <script src="Scripts/d3-tip.js"></script> <!-- Tooltip -->
     <script src="https://d3js.org/d3-queue.v3.min.js"></script> <!-- Queue -->
@@ -15,21 +18,41 @@ Student number: 10767215
     <script src="https://d3js.org/d3-path.v1.min.js"></script>  <!-- Path -->
     <script src="https://d3js.org/d3-shape.v1.min.js"></script>  <!-- Shape -->
     <script src="https://d3js.org/topojson.v1.min.js"></script>  <!-- For making the map -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <script src="Scripts/graph.js"></script>
     <script src="Scripts/drawMap.js"></script>
     <script src="Scripts/drawBarchart.js"></script>
   </head>
 
   <body>
-    <h1>Religie in Nederland</h1>
-    <h3>Data Processing Week 6/7 Assignment</h3>
-    <svg class="map"></svg>
-    <svg class="barchart"></svg>
-    <p>Databron: <a href="https://www.cbs.nl/nl-nl">CBS</a></p>
+    <div class="container-fluid bg1 text-center">
+      <h1>Religie in Nederland</h1>
+      <h3>Data Processing Week 6 + 7 Assignment</h3>
+    </div>
 
-    <p>Kerkelijke gezindte heeft betrekking op de vraag tot welke kerkelijke gezindte of levensbeschouwelijke groepering men zichzelf rekent.</br>
-    De overige categorie is het percentage personen dat zich rekent tot een hier niet onderscheiden kerkelijke gezindte of levensbeschouwelijke groepering, waaronder joden, hindoes en boeddhisten. </p>
+    <div class="container-fluid bg2 text-center">
+      <div class="row">
+        <div class="col-sm-6">
+          <svg class="map"></svg>
+        </div>
+        <div class="col-sm-6">
+          <svg class="barchart"></svg>
+        </div>
+      </div>
+      <p>Databron: <a href="https://www.cbs.nl/nl-nl">CBS</a></p>
+    </div>
 
-    <p><i>Door Leony Brok</i></p>
+    <div class="container-fluid bg3 text-center">
+      <p>Kerkelijke gezindte heeft betrekking op de vraag tot welke kerkelijke gezindte of levensbeschouwelijke groepering men zichzelf rekent.</br>
+      De overige categorie is het percentage personen dat zich rekent tot een hier niet onderscheiden kerkelijke gezindte of levensbeschouwelijke groepering, waaronder joden, hindoes en boeddhisten. </p>
+    </div>
+
+    <div class="container-fluid bg4 text-center">
+      <p>Gemaakt door Leony Brok</p>
+    </div>
   </body>
 </html>

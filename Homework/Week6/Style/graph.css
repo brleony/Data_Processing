@@ -1,11 +1,32 @@
 /**
 * Name: Leony Brok
 * Student number: 10767215
+*
+* Color scheme
+* Dark grey = #4C5160
+* Dark purple = #241557
+* Light green = #93B7BE
 **/
 
-body {
-    background-color: #edf5f9;
-    font-family: sans-serif;
+.bg1 {
+    background-color: #4C5160; /* Dark grey */
+    color: #ffffff;
+}
+.bg2 {
+    background-color: #ffffff;
+    color: #000000;
+}
+.bg3 {
+    background-color: #241557; /* Dark purple */
+    color: #ffffff;
+}
+.bg4 {
+    background-color: #93B7BE; /* Light green */
+    color: #ffffff;
+}
+.container-fluid {
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 .barchart rect {

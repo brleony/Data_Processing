@@ -7,6 +7,9 @@ Todo:
 tooltip voor kaart
 legenda voor kaart
 interactiviteit tussen grafieken: klik op provincie -> barchart voor die provincie
+storytelling op de website
+titels
+bootstrap
 **/
 
 // wait until DOM has loaded
