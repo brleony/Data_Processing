@@ -20,12 +20,14 @@ function drawMap(nld, religion) {
         .attr("width", width - 100)
 
     // create tooltip
-    var tip = d3.tip()
+    var tipMap = d3.tip()
       .attr('class', 'd3-tip')
-      .offset([-10, 0])
+      .offset([30, 0])
       .html(function(d) {
-         return "<strong>" + d + " %</strong>";
+         return "<strong>" + d.properties.name + "</br>Totaal religieus: " + religion[d.properties.name]["2010"]["Totaal kerkelijke gezindte"] + "%</strong>";
       })
+
+    map.call(tipMap);
 
     var projection = d3.geoMercator()
     .scale(1)
@@ -57,5 +59,13 @@ function drawMap(nld, religion) {
             return 0;
         })
         .attr("stroke", "black")
-        .attr("stroke-width", 1);
+        .attr("stroke-width", 1)
+        .on("mouseover", function(d) {
+            tipMap.show(d);
+            d3.select(this).style("fill", "#93B7BE");
+        })
+        .on("mouseout", function(d) {
+            tipMap.hide(d);
+            d3.select(this).style("fill", "#241557");
+        });
 };

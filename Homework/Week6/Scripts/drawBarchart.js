@@ -28,17 +28,17 @@ function drawBarchart(religion) {
       .range([0, width]);
 
   // create tooltip
-  var tip = d3.tip()
+  var tipBarchart = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-       return "<strong>" + d + " %</strong>";
+       return "<strong>" + d + "%</strong>";
     })
 
-  barchart.call(tip);
+  barchart.call(tipBarchart);
 
   // draw bars
-  drawBars(barchart, religion, barWidth, height, y, tip);
+  drawBars(barchart, religion, barWidth, height, y, tipBarchart);
 
   // draw axes
   drawYAxis(barchart, height, y);
@@ -47,7 +47,7 @@ function drawBarchart(religion) {
 
 
 // draw bars for hours of sunshine
-function drawBars(barchart, religion, barWidth, height, y, tip) {
+function drawBars(barchart, religion, barWidth, height, y, tipBarchart) {
 
     // enter data
     var bar = barchart.selectAll("rect")
@@ -61,11 +61,11 @@ function drawBars(barchart, religion, barWidth, height, y, tip) {
         .attr("height", function(d) { return height - y(d); })
         .attr("width", barWidth - 1)
         .on("mouseover", function(d) {
-            tip.show(d);
+            tipBarchart.show(d);
             d3.select(this).style("fill", "#93B7BE");
         })
         .on("mouseout", function(d) {
-            tip.hide(d);
+            tipBarchart.hide(d);
             d3.select(this).style("fill", "#241557");
         });
 }
