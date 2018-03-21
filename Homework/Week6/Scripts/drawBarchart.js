@@ -4,6 +4,7 @@
 *
 * Draws a bar chart.
 */
+
 function drawBarchart(religion) {
 
   // determine svg attributes
@@ -19,7 +20,7 @@ function drawBarchart(religion) {
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var y = d3.scaleLinear()
+  y = d3.scaleLinear()
       .domain([100, 0])
       .range([0, height]);
 
@@ -32,7 +33,7 @@ function drawBarchart(religion) {
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-       return "<strong>" + d + "%</strong>";
+       return d + "%";
     })
 
   barchart.call(tipBarchart);
@@ -45,8 +46,24 @@ function drawBarchart(religion) {
   drawXAxis(barchart, height, x);
 };
 
+function updateBarchart (religion, province) {
 
-// draw bars for hours of sunshine
+  var x = d3.scaleBand()
+      .domain(d3.keys(religion[province]["2010"]));
+
+  var barchart = d3.select(".barchart");
+
+  var margin = {top: 20, right: 30, bottom: 220, left: 80},
+      barWidth = 30,
+      height = 600 - margin.top - margin.bottom;
+
+  var bar = barchart.selectAll("rect")
+      .data(d3.values(religion[province]["2010"]))
+      .attr("y", function(d) { return y(d); })
+      .attr("height", function(d) { return height - y(d); });
+};
+
+// draw bars religion
 function drawBars(barchart, religion, barWidth, height, y, tipBarchart) {
 
     // enter data
@@ -74,7 +91,7 @@ function drawBars(barchart, religion, barWidth, height, y, tipBarchart) {
 function drawYAxis(barchart, height, y) {
 
     barchart.append("g")
-        .attr("class", "y axis")
+        .attr("class", "yaxis")
         .call(d3.axisLeft(y))
       .append("text")
         .attr("fill", "#000")
@@ -86,11 +103,11 @@ function drawYAxis(barchart, height, y) {
         .text("% inwoners");
 }
 
-// draw x axis with axis label
+// draw x axis
 function drawXAxis(barchart, height, x) {
 
     barchart.append("g")
-        .attr("class", "x axis")
+        .attr("class", "xaxis")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
       .selectAll("text")
