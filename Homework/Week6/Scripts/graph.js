@@ -4,12 +4,11 @@
 *
 *
 Todo:
-tooltip voor kaart
+bars op grootte sorteren
 legenda voor kaart
-interactiviteit tussen grafieken: klik op provincie -> barchart voor die provincie
 storytelling op de website
-titels
-bootstrap
+titels bij kaart en barchart
+wat doe ik met y??
 **/
 
 // wait until DOM has loaded
