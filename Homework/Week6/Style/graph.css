@@ -18,7 +18,7 @@
 }
 .bg3 {
     background-color: #241557; /* Dark purple */
-    color: #ffffff;
+    color: #ffffff
 }
 .bg4 {
     background-color: #93B7BE; /* Light green */
@@ -47,6 +47,7 @@
 }
 
 .d3-tip {
+  text-align: center;
   line-height: 1;
   font-weight: bold;
   padding: 12px;
