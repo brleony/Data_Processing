@@ -7,6 +7,7 @@
 * Based on example by Phil Pedruco
 * http://bl.ocks.org/phil-pedruco/9344373
 */
+
 function drawMap(nld, religion) {
 
     // determine svg attributes
@@ -24,7 +25,7 @@ function drawMap(nld, religion) {
     drawMapLegend(map, width, margin);
 };
 
-function updateYearMap(year) {
+function updateYearMap() {
 
   var map = d3.select(".map");
 
@@ -35,33 +36,13 @@ function updateYearMap(year) {
   var path = d3.geoPath()
       .projection(projection);
 
-  console.log(map);
-
   map.selectAll("path")
-      .data(topojson.feature(nld, nld.objects.subunits).features).enter()
-      .append("path")
-      .attr("d", path)
-      .attr("class", function(d, i) {
-          return d.properties.name;
-      })
+      .data(topojson.feature(nld, nld.objects.subunits).features)
       .attr("fill-opacity", function(d, i) {
           if (d.properties.name && religion[d.properties.name]) {
-            return religion[d.properties.name][year]["Totaal kerkelijke gezindte"] / 100.0;
+            return religion[d.properties.name][year()]["Totaal kerkelijke gezindte"] / 100.0;
           }
           return 0;
-      })
-      .attr("stroke", "black")
-      .attr("stroke-width", 1)
-      .on("mouseover", function(d) {
-          tipMap.show(d);
-          d3.select(this).style("fill", "#93B7BE");
-      })
-      .on("mouseout", function(d) {
-          tipMap.hide(d);
-          d3.select(this).style("fill", "#241557")
-      })
-      .on("click", function(d) {
-          updateBarchart(religion, d.properties.name);
       });
 };
 
@@ -72,7 +53,7 @@ function drawProvinces(map, nld, religion, margin, height, width) {
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
-       return d.properties.name + "</br>Totaal religieus: " + religion[d.properties.name]["2010"]["Totaal kerkelijke gezindte"] + "%";
+       return d.properties.name + "</br>Totaal religieus: " + religion[d.properties.name][year()]["Totaal kerkelijke gezindte"] + "%";
     })
 
   map.call(tipMap);
@@ -102,7 +83,7 @@ function drawProvinces(map, nld, religion, margin, height, width) {
       })
       .attr("fill-opacity", function(d, i) {
           if (d.properties.name && religion[d.properties.name]) {
-            return religion[d.properties.name]["2010"]["Totaal kerkelijke gezindte"] / 100.0;
+            return religion[d.properties.name][year()]["Totaal kerkelijke gezindte"] / 100.0;
           }
           return 0;
       })
@@ -117,7 +98,7 @@ function drawProvinces(map, nld, religion, margin, height, width) {
           d3.select(this).style("fill", "#241557")
       })
       .on("click", function(d) {
-          updateBarchart(religion, d.properties.name);
+          updateProvince(d.properties.name);
       });
 };
 
@@ -138,7 +119,7 @@ function drawMapLegend(map, width, margin) {
            var y = i * legendOffset + legendOffset;
            return "translate(20," + y + ")";
          });
-
+  /*
   // add legend title
   map.select("map").append("text")
     .attr("class", "legendcolortitle")
@@ -162,5 +143,5 @@ function drawMapLegend(map, width, margin) {
       .attr("y", legendOffset / 2)
       .attr("dy", ".35em")
       .style("text-anchor", "end")
-      .text(function(d) { return d; });
+      .text(function(d) { return d; });*/
 };

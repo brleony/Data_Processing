@@ -11,7 +11,7 @@ function drawBarchart(religion) {
   margin = {top: 20, right: 30, bottom: 220, left: 80},
       barWidth = 30,
       height = 600 - margin.top - margin.bottom,
-      width = barWidth * (d3.keys(religion["Nederland"]["2010"]).length);
+      width = barWidth * (d3.keys(religion[province()][year()]).length);
 
   // set chart height and width
   var barchart = d3.select(".barchart")
@@ -25,7 +25,7 @@ function drawBarchart(religion) {
       .range([0, height]);
 
   var x = d3.scaleBand()
-      .domain(d3.keys(religion["Nederland"]["2010"]))
+      .domain(d3.keys(religion[province()][year()]))
       .range([0, width]);
 
   // create tooltip
@@ -46,18 +46,17 @@ function drawBarchart(religion) {
   drawXAxis(barchart, height, x);
 };
 
-function updateBarchart (religion, province) {
-
+function updateBarchart () {
   var barchart = d3.select(".barchart");
-
+  console.log(province(), year());
   var bar = barchart.selectAll("rect")
-      .data(d3.values(religion[province]["2010"]))
+      .data(d3.values(religion[province()][year()]))
       .transition()
         .duration(700)
         .attr("y", function(d) { return y(d); })
         .attr("height", function(d) { return height - y(d); });
 
-  document.getElementById("provincename").textContent=province;
+  document.getElementById("provincename").textContent=province();
 };
 
 // draw bars religion
@@ -65,7 +64,7 @@ function drawBars(barchart, religion, barWidth, height, y, tipBarchart) {
 
     // enter data
     var bar = barchart.selectAll("rect")
-        .data(d3.values(religion["Nederland"]["2010"]))
+        .data(d3.values(religion[province()][year()]))
         .enter();
 
     // add bars to chart

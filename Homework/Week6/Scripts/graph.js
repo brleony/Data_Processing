@@ -11,6 +11,9 @@ storytelling op de website
 wat doe ik met y??
 **/
 
+currentYear = 2010;
+currentProvince = "Nederland";
+
 // wait until DOM has loaded
 if (document.addEventListener) {
     document.addEventListener("DOMContentLoaded", function() {
@@ -27,7 +30,7 @@ if (document.addEventListener) {
   });
 }
 
-function createGraph (error) {
+function createGraph(error) {
 
     // alert if error
     if (error) {
@@ -40,12 +43,25 @@ function createGraph (error) {
     drawBarchart(religion);
 };
 
-function updateYear (year) {
+function updateYear(year) {
 
   /*parseTime = d3.timeParse("%Y");
   var year = parseTime(year);*/
 
-  updateYearMap(year);
-
-  /*updateYearBarchart();*/
+  currentYear = year;
+  updateYearMap();
+  updateBarchart();
 };
+
+function updateProvince(province) {
+  currentProvince = province;
+  updateBarchart();
+}
+
+function year() {
+  return currentYear;
+}
+
+function province() {
+  return currentProvince;
+}
