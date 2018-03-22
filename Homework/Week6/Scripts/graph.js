@@ -1,14 +1,6 @@
 /**
 * Name: Leony Brok
 * Student number: 10767215
-*
-*
-Todo:
-bootstrap jaartal
-bars op grootte sorteren
-legenda voor kaart
-storytelling op de website
-wat doe ik met y??
 **/
 
 currentYear = 2010;
