@@ -17,11 +17,52 @@ function drawMap(nld, religion) {
     // set map height and width
     var map = d3.select(".map")
         .attr("height", height)
-        .attr("width", width - 100)
+        .attr("width", width - 100);
 
     drawProvinces(map, nld, religion, margin, height, width);
 
     drawMapLegend(map, width, margin);
+};
+
+function updateYearMap(year) {
+
+  var map = d3.select(".map");
+
+  var projection = d3.geoMercator()
+  .scale(1)
+  .translate([0, 0]);
+
+  var path = d3.geoPath()
+      .projection(projection);
+
+  console.log(map);
+
+  map.selectAll("path")
+      .data(topojson.feature(nld, nld.objects.subunits).features).enter()
+      .append("path")
+      .attr("d", path)
+      .attr("class", function(d, i) {
+          return d.properties.name;
+      })
+      .attr("fill-opacity", function(d, i) {
+          if (d.properties.name && religion[d.properties.name]) {
+            return religion[d.properties.name][year]["Totaal kerkelijke gezindte"] / 100.0;
+          }
+          return 0;
+      })
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .on("mouseover", function(d) {
+          tipMap.show(d);
+          d3.select(this).style("fill", "#93B7BE");
+      })
+      .on("mouseout", function(d) {
+          tipMap.hide(d);
+          d3.select(this).style("fill", "#241557")
+      })
+      .on("click", function(d) {
+          updateBarchart(religion, d.properties.name);
+      });
 };
 
 function drawProvinces(map, nld, religion, margin, height, width) {
@@ -29,7 +70,7 @@ function drawProvinces(map, nld, religion, margin, height, width) {
   // create tooltip
   var tipMap = d3.tip()
     .attr('class', 'd3-tip')
-    .offset([30, 0])
+    .offset([-10, 0])
     .html(function(d) {
        return d.properties.name + "</br>Totaal religieus: " + religion[d.properties.name]["2010"]["Totaal kerkelijke gezindte"] + "%";
     })
@@ -88,8 +129,6 @@ function drawMapLegend(map, width, margin) {
   var percentage = d3.scaleLinear()
       .range([0, 20, 40, 60, 80]);
 
-  console.log(percentage.range());
-
   // initiate legend
   var legend = map.selectAll("g.legendcolor")
       .data(percentage.range())
@@ -101,7 +140,7 @@ function drawMapLegend(map, width, margin) {
          });
 
   // add legend title
-  d3.select("map").append("text")
+  map.select("map").append("text")
     .attr("class", "legendcolortitle")
     .attr("x", width + margin.right - (legendOffset * 2))
     .attr("y", legendOffset)
@@ -115,7 +154,7 @@ function drawMapLegend(map, width, margin) {
       .attr("cx", width + margin.right - (legendOffset * 2))
       .attr("cy", 9)
       .style("fill", "#241557")
-      .style("stroke", "#000000")
+      .style("stroke", "#000000");
 
   // add labels to colored circles
   legend.append("text")

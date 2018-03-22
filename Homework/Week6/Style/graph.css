@@ -29,11 +29,26 @@
     padding-bottom: 30px;
 }
 
+.btn {
+    background-color: #4C5160;
+    color: #fff;
+    border-radius: 0;
+    transition: .7s;
+}
+.btn:hover, .btn:focus {
+    background-color: #93B7BE;
+    color: #fff;
+}
+
 .barchart rect {
   fill: #241557;
 }
 .map path {
   fill: #241557;
+}
+
+.graphTitle {
+  font-weight: bold;
 }
 
 .axis text {

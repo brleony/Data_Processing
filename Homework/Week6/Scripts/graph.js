@@ -4,10 +4,10 @@
 *
 *
 Todo:
+bootstrap jaartal
 bars op grootte sorteren
 legenda voor kaart
 storytelling op de website
-titels bij kaart en barchart
 wat doe ik met y??
 **/
 
@@ -19,11 +19,15 @@ if (document.addEventListener) {
     d3.queue()
         .defer(d3.json, "Data/religion.json")
         .defer(d3.json, "Data/nld.json")
-        .await(createGraph);
+        .await(function (error, data, topo) {
+          religion = data;
+          nld = topo;
+          createGraph(error);
+        });
   });
 }
 
-function createGraph (error, religion, nld) {
+function createGraph (error) {
 
     // alert if error
     if (error) {
@@ -34,4 +38,14 @@ function createGraph (error, religion, nld) {
     drawMap(nld, religion);
 
     drawBarchart(religion);
+};
+
+function updateYear (year) {
+
+  /*parseTime = d3.timeParse("%Y");
+  var year = parseTime(year);*/
+
+  updateYearMap(year);
+
+  /*updateYearBarchart();*/
 };

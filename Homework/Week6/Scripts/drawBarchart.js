@@ -8,7 +8,7 @@
 function drawBarchart(religion) {
 
   // determine svg attributes
-  var margin = {top: 20, right: 30, bottom: 220, left: 80},
+  margin = {top: 20, right: 30, bottom: 220, left: 80},
       barWidth = 30,
       height = 600 - margin.top - margin.bottom,
       width = barWidth * (d3.keys(religion["Nederland"]["2010"]).length);
@@ -48,19 +48,16 @@ function drawBarchart(religion) {
 
 function updateBarchart (religion, province) {
 
-  var x = d3.scaleBand()
-      .domain(d3.keys(religion[province]["2010"]));
-
   var barchart = d3.select(".barchart");
-
-  var margin = {top: 20, right: 30, bottom: 220, left: 80},
-      barWidth = 30,
-      height = 600 - margin.top - margin.bottom;
 
   var bar = barchart.selectAll("rect")
       .data(d3.values(religion[province]["2010"]))
-      .attr("y", function(d) { return y(d); })
-      .attr("height", function(d) { return height - y(d); });
+      .transition()
+        .duration(700)
+        .attr("y", function(d) { return y(d); })
+        .attr("height", function(d) { return height - y(d); });
+
+  document.getElementById("provincename").textContent=province;
 };
 
 // draw bars religion
