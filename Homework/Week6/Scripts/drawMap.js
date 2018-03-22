@@ -3,9 +3,6 @@
 * Student number: 10767215
 *
 * Draw a map of the Netherlands
-*
-* Based on example by Phil Pedruco
-* http://bl.ocks.org/phil-pedruco/9344373
 */
 
 function drawMap(nld, religion) {
@@ -22,19 +19,12 @@ function drawMap(nld, religion) {
 
     drawProvinces(map, nld, religion, margin, height, width);
 
-    drawMapLegend(map, width, margin);
+    drawMapLegend(map);
 };
 
 function updateYearMap() {
 
   var map = d3.select(".map");
-
-  var projection = d3.geoMercator()
-  .scale(1)
-  .translate([0, 0]);
-
-  var path = d3.geoPath()
-      .projection(projection);
 
   map.selectAll("path")
       .data(topojson.feature(nld, nld.objects.subunits).features)
@@ -46,6 +36,12 @@ function updateYearMap() {
       });
 };
 
+/*
+* Draw the provinces of the Nethelands.
+*
+* Based on example by Phil Pedruco
+* http://bl.ocks.org/phil-pedruco/9344373
+*/
 function drawProvinces(map, nld, religion, margin, height, width) {
 
   // create tooltip
@@ -102,10 +98,62 @@ function drawProvinces(map, nld, religion, margin, height, width) {
       });
 };
 
-function drawMapLegend(map, width, margin) {
+/*
+* Draws a legend for the colors of the provinces.
+*
+* Based on example by Darren Jaworski.
+* http://bl.ocks.org/darrenjaworski/5397362
+*/
+function drawMapLegend(map) {
+
+  var key = map.selectAll("g.legendcolor")
+
+  var legend = map.append("defs")
+    .append("svg:linearGradient")
+    .attr("id", "gradient")
+    .attr("x1", "100%")
+    .attr("y1", "100%")
+    .attr("x2", "100%")
+    .attr("y2", "0%")
+    .attr("spreadMethod", "pad");
+
+  legend.append("stop")
+    .attr("offset", "0%")
+    .attr("stop-color", "#241557")
+    .attr("stop-opacity", 0);
+
+  legend.append("stop")
+    .attr("offset", "100%")
+    .attr("stop-color", "#241557")
+    .attr("stop-opacity", 1);
+
+  map.append("rect")
+    .attr("width", 30)
+    .attr("height", 200)
+    .style("fill", "url(#gradient)")
+    .attr("transform", "translate(0,10)");
+
+  var y = d3.scaleLinear()
+    .range([200, 0])
+    .domain([0, 100]);
+
+  var yAxis = d3.axisRight()
+    .scale(y)
+    .ticks(6);
+
+  map.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(30,10)")
+    .call(yAxis)
+    .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 0)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("axis title");
 
   // determine legend offset
-  var legendOffset = margin.right / 8;
+  /*var legendOffset = margin.right / 8;
 
   var percentage = d3.scaleLinear()
       .range([0, 20, 40, 60, 80]);
@@ -117,9 +165,9 @@ function drawMapLegend(map, width, margin) {
          .attr("class", "legendcolor")
          .attr("transform", function(d, i) {
            var y = i * legendOffset + legendOffset;
-           return "translate(20," + y + ")";
+           return "translate(-650," + y + ")";
          });
-  /*
+
   // add legend title
   map.select("map").append("text")
     .attr("class", "legendcolortitle")
