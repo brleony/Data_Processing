@@ -144,52 +144,5 @@ function drawMapLegend(map) {
   map.append("g")
     .attr("class", "y axis")
     .attr("transform", "translate(30,10)")
-    .call(yAxis)
-    .append("text")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 0)
-    .attr("dy", ".71em")
-    .style("text-anchor", "end")
-    .text("axis title");
-
-  // determine legend offset
-  /*var legendOffset = margin.right / 8;
-
-  var percentage = d3.scaleLinear()
-      .range([0, 20, 40, 60, 80]);
-
-  // initiate legend
-  var legend = map.selectAll("g.legendcolor")
-      .data(percentage.range())
-      .enter().append("g")
-         .attr("class", "legendcolor")
-         .attr("transform", function(d, i) {
-           var y = i * legendOffset + legendOffset;
-           return "translate(-650," + y + ")";
-         });
-
-  // add legend title
-  map.select("map").append("text")
-    .attr("class", "legendcolortitle")
-    .attr("x", width + margin.right - (legendOffset * 2))
-    .attr("y", legendOffset)
-    .attr("dy", ".35em")
-    .style("font-weight", "bold")
-    .text("Region");
-
-  // add colored cicles
-  legend.append("circle")
-      .attr("r", legendOffset / 2)
-      .attr("cx", width + margin.right - (legendOffset * 2))
-      .attr("cy", 9)
-      .style("fill", "#241557")
-      .style("stroke", "#000000");
-
-  // add labels to colored circles
-  legend.append("text")
-      .attr("x", width + margin.right - (legendOffset * 3))
-      .attr("y", legendOffset / 2)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(function(d) { return d; });*/
+    .call(yAxis);
 };
