@@ -8,9 +8,9 @@
 function drawBarchart() {
 
   // Determine svg attributes.
-  margin = {top: 20, right: 30, bottom: 220, left: 80},
+  margin = {top: 20, right: 30, bottom: 180, left: 80},
       barWidth = 30,
-      height = 600 - margin.top - margin.bottom,
+      height = 500 - margin.top - margin.bottom,
       width = barWidth * (d3.keys(religion[province()][year()]).length);
 
   // Set chart height and width.

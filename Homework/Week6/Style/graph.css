@@ -26,7 +26,8 @@
     background-color: #93B7BE; /* Light green */
     color: #ffffff;
 }
-.container-fluid {
+
+.container {
     padding-top: 30px;
     padding-bottom: 30px;
 }
@@ -41,20 +42,32 @@
 }
 /* Active button */
 .btn.btn-primary.active, .btn.btn-primary.active.focus {
-    background-color: #93B7BE;
-    color: #fff;
-    border-color: #fff;
+  background-color: #93B7BE;
+  color: #fff;
+  border-color: #fff;
 }
 /* Hover button */
 .btn.btn-primary.active:hover, .btn.btn-primary:hover{
-    background-color: #73a2ab;
-    color: #fff;
-    border-color: #fff;
+  background-color: #73a2ab;
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn-group {
+  padding-bottom: 30px;
 }
 
 .graphTitle {
-  font: 16px sans-serif;
+  font: 18px sans-serif;
   font-weight: bold;
+}
+.explanation {
+  font: 12px sans-serif;
+  font-style: italic;
+}
+.story {
+  font: 16px sans-serif;
+  line-height: 28px;
 }
 
 .barchart rect {

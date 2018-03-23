@@ -30,38 +30,48 @@ Student number: 10767215
   </head>
 
   <body>
-    <div class="container-fluid bg1 text-center">
-      <h1>Religie in Nederland</h1>
-      <h3>Data Processing Week 6 + 7 Assignment</h3>
+    <div class="bg1">
+      <div class="container text-center">
+        <h1>Religie in Nederland</h1>
+        <h3>Data Processing Week 6 + 7 Assignment</h3>
+      </div>
     </div>
 
     <!-- Container for map and barchart -->
-    <div class="container-fluid bg2 text-center">
-      <div id="selector" class="btn-group" data-toggle="buttons"></div>
-      <div class="row">
-        <div class="col-sm-6">
-          <p class="graphTitle">Percentage religieuze inwoners per provincie</p>
-          <svg class="map"></svg>
-        </div>
-        <div class="col-sm-6">
-          <p class="graphTitle">Religie in <span id="provincename">Nederland</span></p>
-          <div>
-            <button type="button" class="btn btn-primary" onclick="sortBars()">Sort</button>
-            <button type="button" class="btn btn-primary" onclick="updateBarchartProvince('Nederland')">Heel Nederland</button>
+    <div class="bg2">
+      <div class="container text-center">
+        <div id="selector" class="btn-group" data-toggle="buttons"></div>
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="graphTitle">Percentage religieuze inwoners per provincie</p>
+            <svg class="map"></svg>
           </div>
-          <svg class="barchart"></svg>
+          <div class="col-sm-6">
+            <p class="graphTitle">Religie in <span id="provincename">Nederland</span></p>
+            <div>
+              <button type="button" class="btn btn-primary" onclick="sortBars()">Sorteer</button>
+              <button type="button" class="btn btn-primary" onclick="updateBarchartProvince('Nederland')">Heel Nederland</button>
+            </div>
+            <svg class="barchart"></svg>
+            <p class="explanation">Kerkelijke gezindte heeft betrekking op de vraag tot welke kerkelijke gezindte of levensbeschouwelijke groepering men zichzelf rekent.
+            De overige categorie is het percentage personen dat zich rekent tot een hier niet onderscheiden kerkelijke gezindte of levensbeschouwelijke groepering, waaronder joden, hindoes en boeddhisten.</p>
+          </div>
         </div>
+        <p>Databron: <a href="https://www.cbs.nl/nl-nl">CBS</a></p>
       </div>
-      <p>Databron: <a href="https://www.cbs.nl/nl-nl">CBS</a></p>
     </div>
 
-    <div class="container-fluid bg3 text-center">
-      <p>Kerkelijke gezindte heeft betrekking op de vraag tot welke kerkelijke gezindte of levensbeschouwelijke groepering men zichzelf rekent.</br>
-      De overige categorie is het percentage personen dat zich rekent tot een hier niet onderscheiden kerkelijke gezindte of levensbeschouwelijke groepering, waaronder joden, hindoes en boeddhisten. </p>
+    <div class="bg3">
+      <div class="container text-center story">
+        <p>Weet je welke religie het meest wordt aangehangen in de provincie waar je woont? Of weet je in welke provincie de minste mensen gelovig zijn? Wat zijn de laatste jaren de verschillen?
+        Kijk op de kaart, of klik op een provincie of op één van de jaarknoppen om dit uit te vinden. Speel met de knoppen en vindt een antwoord op je eigen vragen over religie in Nederland.</p>
+      </div>
     </div>
 
-    <div class="container-fluid bg4 text-center">
-      <p>Gemaakt door Leony Brok</p>
+    <div class="bg4">
+      <div class="container text-center">
+        <p>Gemaakt door Leony Brok</p>
+      </div>
     </div>
 
   </body>
