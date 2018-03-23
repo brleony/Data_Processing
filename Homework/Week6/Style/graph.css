@@ -9,6 +9,7 @@
 * Green = #73a2ab
 **/
 
+/* */
 .bg1 {
     background-color: #4C5160; /* Dark grey */
     color: #ffffff;
@@ -30,6 +31,7 @@
     padding-bottom: 30px;
 }
 
+/* Default button */
 .btn.btn-primary{
   background-color: #4C5160;
   color: #fff;
@@ -37,17 +39,21 @@
   transition: .7s;
   border-color: #fff;
 }
-
+/* Active button */
 .btn.btn-primary.active, .btn.btn-primary.active.focus {
     background-color: #93B7BE;
     color: #fff;
     border-color: #fff;
 }
-
+/* Hover button */
 .btn.btn-primary.active:hover, .btn.btn-primary:hover{
     background-color: #73a2ab;
     color: #fff;
     border-color: #fff;
+}
+
+.graphTitle {
+  font-weight: bold;
 }
 
 .barchart rect {
@@ -57,20 +63,17 @@
   fill: #241557;
 }
 
-.graphTitle {
-  font-weight: bold;
-}
-
+/* Axis styles */
 .axis text {
-  font: 16px sans-serif;
+  font: 12px sans-serif;
 }
-.axis path,
-.axis line {
+.axis path, .axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
 
+/* Tooltip for map and barchart */
 .d3-tip {
   text-align: center;
   line-height: 1;
