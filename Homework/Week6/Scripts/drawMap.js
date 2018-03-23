@@ -44,14 +44,13 @@ function updateYearMap() {
 */
 function drawProvinces(map, margin, height, width) {
 
-  // create tooltip
+  // Create tooltip.
   var tipMap = d3.tip()
     .attr('class', 'd3-tip')
     .offset([-10, 0])
     .html(function(d) {
        return d.properties.name + "</br>Totaal religieus: " + religion[d.properties.name][year()]["Totaal kerkelijke gezindte"] + "%";
     })
-
   map.call(tipMap);
 
   var projection = d3.geoMercator()
@@ -93,8 +92,9 @@ function drawProvinces(map, margin, height, width) {
           tipMap.hide(d);
           d3.select(this).style("fill", "#241557")
       })
+      // When clicked, update barchart with that province.
       .on("click", function(d) {
-          updateProvince(d.properties.name);
+          updateBarchartProvince(d.properties.name);
       });
 };
 

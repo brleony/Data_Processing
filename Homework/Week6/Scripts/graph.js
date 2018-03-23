@@ -3,14 +3,15 @@
 * Student number: 10767215
 **/
 
+// Initial year and 'province'.
 currentYear = 2010;
 currentProvince = "Nederland";
 
-// wait until DOM has loaded
+// Wait until DOM has loaded.
 if (document.addEventListener) {
     document.addEventListener("DOMContentLoaded", function() {
 
-    // get data from files
+    // Get data from files and create visualizations.
     d3.queue()
         .defer(d3.json, "Data/religion.json")
         .defer(d3.json, "Data/nld.json")
@@ -22,43 +23,42 @@ if (document.addEventListener) {
   });
 }
 
+/*
+* Create the map and the barchart.
+*/
 function createGraph(error) {
 
-    // alert if error
+    // Alert if error.
     if (error) {
         alert(error + " Something went wrong :(");
         throw error;
     }
 
-    // add buttons to change years
+    // Add buttons to change years.
     var years = d3.keys(religion[province()]);
     var labels = d3.select("#selector").selectAll("label")
       .data(years).enter()
         .append("label")
           .attr("class", "btn btn-primary")
-          .on("click", (year) => updateYear(year))
-          .text((year) => year)
+          .on("click", function(year) { return updateYear(year); })
+          .text(function(year) { return year; })
         .append("input")
           .attr("type", "radio")
           .attr("name", "options")
           .attr("autocomplete", "off");
 
-    drawMap(nld, religion);
+    drawMap();
 
-    drawBarchart(religion);
+    drawBarchart();
 };
 
 function updateYear(year) {
-
-  /*parseTime = d3.timeParse("%Y");
-  var year = parseTime(year);*/
-
   currentYear = year;
   updateYearMap();
   updateBarchart();
 };
 
-function updateProvince(province) {
+function updateBarchartProvince(province) {
   currentProvince = province;
   updateBarchart();
 }
