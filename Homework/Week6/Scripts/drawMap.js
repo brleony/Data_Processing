@@ -5,7 +5,7 @@
 * Draw a map of the Netherlands
 */
 
-function drawMap(nld, religion) {
+function drawMap() {
 
     // determine svg attributes
     var margin = {top: 20, right: 20, bottom: 20, left: 20},
@@ -17,7 +17,7 @@ function drawMap(nld, religion) {
         .attr("height", height)
         .attr("width", width - 100);
 
-    drawProvinces(map, nld, religion, margin, height, width);
+    drawProvinces(map, margin, height, width);
 
     drawMapLegend(map);
 };
@@ -42,7 +42,7 @@ function updateYearMap() {
 * Based on example by Phil Pedruco
 * http://bl.ocks.org/phil-pedruco/9344373
 */
-function drawProvinces(map, nld, religion, margin, height, width) {
+function drawProvinces(map, margin, height, width) {
 
   // create tooltip
   var tipMap = d3.tip()
@@ -139,7 +139,8 @@ function drawMapLegend(map) {
 
   var yAxis = d3.axisRight()
     .scale(y)
-    .ticks(6);
+    .ticks(6)
+    .tickFormat(function(n) { return n + "%"});
 
   map.append("g")
     .attr("class", "y axis")
