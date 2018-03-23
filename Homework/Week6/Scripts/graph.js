@@ -30,6 +30,19 @@ function createGraph(error) {
         throw error;
     }
 
+    // add buttons to change years
+    var years = d3.keys(religion[province()]);
+    var labels = d3.select("#selector").selectAll("label")
+      .data(years).enter()
+        .append("label")
+          .attr("class", "btn btn-primary")
+          .on("click", (year) => updateYear(year))
+          .text((year) => year)
+        .append("input")
+          .attr("type", "radio")
+          .attr("name", "options")
+          .attr("autocomplete", "off");
+
     drawMap(nld, religion);
 
     drawBarchart(religion);

@@ -6,6 +6,7 @@
 * Dark grey = #4C5160
 * Dark purple = #241557
 * Light green = #93B7BE
+* Green = #73a2ab
 **/
 
 .bg1 {
@@ -29,15 +30,24 @@
     padding-bottom: 30px;
 }
 
-.btn {
-    background-color: #4C5160;
-    color: #fff;
-    border-radius: 0;
-    transition: .7s;
+.btn.btn-primary{
+  background-color: #4C5160;
+  color: #fff;
+  border-radius: 0;
+  transition: .7s;
+  border-color: #fff;
 }
-.btn:hover, .btn:focus {
+
+.btn.btn-primary.active, .btn.btn-primary.active.focus {
     background-color: #93B7BE;
     color: #fff;
+    border-color: #fff;
+}
+
+.btn.btn-primary.active:hover, .btn.btn-primary:hover{
+    background-color: #73a2ab;
+    color: #fff;
+    border-color: #fff;
 }
 
 .barchart rect {

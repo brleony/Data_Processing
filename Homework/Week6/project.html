@@ -22,7 +22,6 @@ Student number: 10767215
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script src="Scripts/graph.js"></script>
     <script src="Scripts/drawMap.js"></script>
     <script src="Scripts/drawBarchart.js"></script>
@@ -35,14 +34,7 @@ Student number: 10767215
     </div>
 
     <div class="container-fluid bg2 text-center">
-      <div class="btn-group">
-        <button type="button" class="btn" onclick="updateYear(2010)">2010</button>
-        <button type="button" class="btn" onclick="updateYear(2011)">2011</button>
-        <button type="button" class="btn" onclick="updateYear(2012)">2012</button>
-        <button type="button" class="btn" onclick="updateYear(2013)">2013</button>
-        <button type="button" class="btn" onclick="updateYear(2014)">2014</button>
-        <button type="button" class="btn" onclick="updateYear(2015)">2015</button>
-      </div>
+      <div id="selector" class="btn-group" data-toggle="buttons"></div>
       <div class="row">
         <div class="col-sm-6">
           <p class="graphTitle">Percentage religieuze inwoners per provincie</p>
@@ -64,5 +56,6 @@ Student number: 10767215
     <div class="container-fluid bg4 text-center">
       <p>Gemaakt door Leony Brok</p>
     </div>
+
   </body>
 </html>
