@@ -53,6 +53,7 @@ function drawProvinces(map, margin, height, width) {
     })
   map.call(tipMap);
 
+  // Mercator projection.
   var projection = d3.geoMercator()
   .scale(1)
   .translate([0, 0]);
@@ -65,10 +66,10 @@ function drawProvinces(map, margin, height, width) {
       s = .2 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height),
       t = ([(width - s * (b[1][0] + b[0][0])) / 2, (height - s * (b[1][1] + b[0][1])) / 2]);
 
-  projection
-      .scale(s)
+  projection.scale(s)
       .translate([t[0] - 150, t[1]]);
 
+  // Draw provinces, color based on % religious, with tooltip and onclick action.
   map.selectAll("path")
       .data(topojson.feature(nld, nld.objects.subunits).features).enter()
       .append("path")
@@ -106,7 +107,8 @@ function drawProvinces(map, margin, height, width) {
 */
 function drawMapLegend(map) {
 
-  var key = map.selectAll("g.legendcolor")
+  var legendWidth = 30;
+  var legendHeight = 200;
 
   var legend = map.append("defs")
     .append("svg:linearGradient")
@@ -117,33 +119,35 @@ function drawMapLegend(map) {
     .attr("y2", "0%")
     .attr("spreadMethod", "pad");
 
+  // Gradient from 0 to 1 opacity.
   legend.append("stop")
     .attr("offset", "0%")
     .attr("stop-color", "#241557")
     .attr("stop-opacity", 0);
-
   legend.append("stop")
     .attr("offset", "100%")
     .attr("stop-color", "#241557")
     .attr("stop-opacity", 1);
 
+  // Draw gradient.
   map.append("rect")
-    .attr("width", 30)
-    .attr("height", 200)
+    .attr("width", legendWidth)
+    .attr("height", legendHeight)
     .style("fill", "url(#gradient)")
     .attr("transform", "translate(0,10)");
 
+  // Scale for axis labels.
   var y = d3.scaleLinear()
-    .range([200, 0])
+    .range([legendHeight, 0])
     .domain([0, 100]);
-
   var yAxis = d3.axisRight()
     .scale(y)
     .ticks(6)
     .tickFormat(function(n) { return n + "%"});
 
+  // Draw legend labels.
   map.append("g")
     .attr("class", "y axis")
-    .attr("transform", "translate(30,10)")
+    .attr("transform", "translate(" + legendWidth + ",10)")
     .call(yAxis);
 };
