@@ -47,26 +47,47 @@ function createGraph(error) {
           .attr("name", "options")
           .attr("autocomplete", "off");
 
+    // Make 1st button active.
+    d3.select("#selector").selectAll("label").filter(function(d) {return d == year(); })
+      .attr("class", "btn btn-primary active");
+
     drawMap();
 
     drawBarchart();
 };
 
+/*
+* Save new year and update map and barchart.
+*/
 function updateYear(year) {
+
   currentYear = year;
+
   updateYearMap();
+
   updateBarchart();
 };
 
+/*
+* Save new province and update barchart.
+*/
 function updateBarchartProvince(province) {
+
   currentProvince = province;
+
   updateBarchart();
 }
 
+/*
+* Keep track of selected year.
+*/
 function year() {
   return currentYear;
 }
 
+/*
+* Keep track of selected province.
+*/
 function province() {
   return currentProvince;
 }
